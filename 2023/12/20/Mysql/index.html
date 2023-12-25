@@ -1,0 +1,1345 @@
+<!DOCTYPE html><html lang="ch" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Mysql | 后端开发</title><meta name="keywords" content="mysql , 中间件"><meta name="author" content="XIAO YANG"><meta name="copyright" content="XIAO YANG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Mysql"><meta name="application-name" content="Mysql"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta name="referrer" content="no-referrer"><meta property="og:type" content="article"><meta property="og:title" content="Mysql"><meta property="og:url" content="https://yangxiao23.github.io/yangxiao.github.io/2023/12/20/Mysql/index.html"><meta property="og:site_name" content="后端开发"><meta property="og:description" content="Mysql 学习笔记"><meta property="og:locale" content="ch"><meta property="og:image" content="https://yangxiao23.github.io/yangxiao.github.io/img/headimg.jpg"><meta property="article:author" content="XIAO YANG"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://yangxiao23.github.io/yangxiao.github.io/img/headimg.jpg"><meta name="description" content="Mysql 学习笔记"><link rel="shortcut icon" href="/yangxiao.github.io/favicon.ico"><link rel="canonical" href="https://yangxiao23.github.io/yangxiao.github.io/2023/12/20/Mysql/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/yangxiao.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: undefined,
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/yangxiao.github.io/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: XIAO YANG","link":"链接: ","source":"来源: 后端开发","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '后端开发',
+  title: 'Mysql',
+  postAI: '',
+  pageFillDescription: '高性能Mysql, Mysq架构, Performance Schema, 操作系统和硬件优化, 优化服务器配置, InnoDB缓冲池, 线程缓存, Mysql的Ix2FO行为, mysql常见日志, InnoDB表空间, 其他Ix2FO配置选项, Mysql并发, 高级InnoDB设置, schema的管理和设计, 创建高性能的索引, 索引类型, 高性能的索引策略, 查询性能优化, 表分区, Mysql45讲, redo log, binlog, 两阶段提交, 事务隔离, 视图隔离的实现, 索引, 索引维护, 全局锁和表锁, 行锁, 死锁和死锁检测, 事务是不是隔离的, 普通索引和唯一索引, 更新过程, change buffer和redo log, 优化器的逻辑, 索引选择异常和处理, 如何给字符串加索引, InnoDB刷脏页的控制策略, 表数据删除一半表文件大小不变, count(*)的实现方式, order by的工作原理, 为什么sql语句逻辑相同性能差异却巨大, 查询一行的语句也会执行这么慢吗？, 幻读幻读有什么问题, 常见问题高性能架构逻辑架构分为三层连接层客户端包含的服务包括连接处理身份验证确保安全性核心功能层查询解析分析优化以及所有的内置函数解析所有跨存储引擎的功能都在这一层实现存储过程触发器视图等存储引擎层负责数据的存储和提取服务器通过存储引擎和存储引擎通信屏蔽不同存储引擎差异不同存储引擎之间不会相互通信只会简单相应服务器的请求连接管理与安全性每个客户端连接都会在服务器进程中拥有一个线程该连接的查询只会在这个单独的线程中执行该线程驻留在一个内核或者上服务器维护了一个线程池缓冲区用于存放已就绪的线程不需要频繁创建和销毁线程服务器堆客户端进行身份验证基于用户名密码等手段验证是否具备发出每个查询的权限优化和执行解析查询创建内部数据结构解析树然后对其进行各种优化重写查询决定表的读取顺序选择合适索引等优化器不关心表使用的存储引擎但存储引擎对于查询优化是有影响的优化器会向存储引擎询问它的功能某个操作的成本以及表数据的信息并发控制读写锁共享锁和排它锁锁的粒度提高共享资源并发性让锁定对象更有选择型尽量只锁定需要修改的数据同时需要考虑加锁也需要消耗资源获取锁检查锁状态释放锁都会增加系统开销锁定策略是锁开销和数据安全性之间的平衡行级锁是在存储引擎而不是在服务器中实现的使用某个时间的快照实现在很多情况下避免加锁操作开销更低隔离级别未提交读事务中可以查看其它事务中还没有提交的修改脏读性能不会比其它级别好太多却缺乏其它级别的好处提交读一个事务可以看到其他事务在它开始后的提交的修改可重复读无法解决幻读问题当某个事务在读取某个范围内的记录时另一个事务又在该范围内插入了新的记录再次读取会产生幻行通过解决幻读问题可串行化强制事务按序进行事务日志事务日志有助于提高事务的效率存储引擎只需要更改内存中的数据副本而不用每次修改磁盘中的表这是非常快的然后把更改的记录记入事务日志事务日志会被持久化保存到磁盘上事务日志采用追加写的操作顺序事务不在服务器层管理事务事务是由下层的存储引擎实现的不要在事务中混合使用存储引擎通过为每个事务在启动时分配一个事务来实现该在事务首次读取任何数据时分配在该事务中修改记录时将向日志写入一条说明如何恢复该更改的记录并且事务的回滚指针指向该日志记录所有日志写入也都会写入日志在记录中保留这些额外信息带来的结果是大多数读取查询都不再需要获取锁缺点是存储引擎必须在每一行中存储更多数据仅适用于和隔离级别查询不会读取适合其事务版本的行版本读取会锁定他们返回的每一行数据文件结构在版本中将表的元数据重新设计为一种数据字典包含在表的文件中使得表结构上的信息支持事务和原子级数据定义更改在操作期间不再仅仅依赖来检索表定义和元数据引入了字典对象缓存基于最近最少适用的内存缓存每个表的和文件被替换为已经被序列化的字典信息文件存储引擎使用的数据文件用于存储表的数据和索引如果该文件丢失或损坏可能导致数据丢失或无法访问文件存储表定义的文件用于存储表的结构信息包括表的字段类型长度约束等信息丢失或损坏可能导致无法相关的表但是数据本身并不会丢失表的元数据信息表名字段每个字段的名称数据类型长度是否可以为空约束表级别的约束主键唯一键外键等索引表的索引信息索引名称索引类型索引字段等视图表的视图信息视图名称视图定义等存储引擎表的存储引擎类型如表的创建时间更新时间表表是基于聚簇索引构建的聚簇索引提供了非常快速的主键查找但是二级索引需要包含主键列如果主键较大则其它索引也会很大如果表中的索引较多主键应当尽量小内部做了很多优化包括从磁盘预取的可预测性读自动在内存中构建哈希索引自适应哈希用于加速插入操作的插入缓冲区高负载下调优数据库性能是一个迭代循环的过程每次进行更改以调优数据库的性能时都需要了解是否有什么影响数据库提供了有关服务器内部运行的操作上的底层指标工作机制程序插桩在代码中插入探测代码以获取我们想了解的信息消费者表存储关于程序插桩代码的信息启用插桩会调用额外的代码意味着插桩会消耗资源收集的数据保存在内存中可以设置消费者表的大小来限制其使用的内存量理解线程服务器是多线程软件每个组件都使用线程线程包含两个标识符操作系统的线程内部线程每个前台线程都有一个指定的连接标识符中的中包含了服务器中存在的所有线程元数据锁用于保存数据库对象定义不被修改执行任何语句都需要获取共享元数据锁共享元数据锁会阻止哪些更改数据库对象定义的语句事务执行期间会一直持有元数据锁操作系统和硬件优化服务器的性能受限于整个系统最薄弱的环节而承载它的操作系统和硬件往往是限制元素每个查询将只使用一个平衡内存和磁盘资源写入放大用来描述由于部分块写而导致的数据从一处移到另一多次写入数据和元数据所产生的额外写操作优化服务器配置根据工作负载数据和应用程序需求来配置服务器而不仅仅是根据硬件来配置查看服务器读取的文件如果在服务器运行时设置配置变量的全局值则当前会话和其它现有会话将不受应想在开始更改配置之前应该优化查询和解决一些显而易见的问题最小化配置设置日志文件大小日志文件用于记录事务操作的详细信息包括修改的数据数据的开始和结束时间事务的提交和回滚等存储引擎一个参数用于控制表的存储方式设置为时每个表都会独立使用一个表空间文件来存储数据和索引控制缓存中的数据在刷新到磁盘时使用文件系统或设备的刷新方法同步写入的磁盘刷新数据到磁盘等待磁盘响应后才返回直接方式刷新数据到磁盘使用标准的文件系统缓存和同步写入的方式刷新数据到磁盘等待文件系统响应后才返回每个连接的内存需求只需要少量的内存就能保持一个连接缓冲池缓存池需要的内存比其他任何组件都多缓冲池不仅缓存索引还缓存行数据自适应哈希索引更改缓冲区锁和其他内部结构等还使用缓存池来实现延迟写操作将多个写操作合并在一起并按顺序执行线程缓存线程缓存保存了当前没有与连接关联但已准备好为新连接提供服务的线程的行为事务日志使用日志来降低提交事务的成本不会在每个事务提交时将缓冲池刷新到磁盘而是记录到日志中使用日志可以将随机转换为顺序一旦日志被安全地保存在磁盘中辑视更改地数据尚未写入数据文件事务仍是持久的可以重放日志并恢复已提交地事务日志缓冲区修改数据时会将修改记录写入日志缓冲区并将其保存在内存中缓冲区满了事务提交时每秒一次三种以满足以先满足为准会将缓冲区刷新到磁盘的日志文件中不需要将缓冲区设置得很大建议范围时如何刷新日志缓冲区当将日志缓冲区刷新到磁盘上的日志文件时会使用互斥锁锁定缓冲区将其刷新到所需的位置然后将剩余的条目移动到缓冲区的前面当释放互斥锁时可能会有多个事务准备刷新其日志条目使用了一个组提交特性可以在单个操作中将一组日志全部提交控制日志缓冲区的刷新位置和刷新频率每秒定义将日志缓冲区写入到日志文件并刷新日志文件每次事务提交时将日志缓冲区写入日志文件并将其刷新到持久存储中每次事务提交时都将日志缓冲区写入日志文件中但不执行刷新高性能事务需求的最佳配置是将设置为并将日志文件放在具有备用电池的写缓存和的卷上常见日志二进制日志记录所有修改操作二进制日志是实时写入磁盘的每个事务提交时都会被写入二进制文件中事务日志用于恢复在系统崩溃前未来得及持久化到磁盘的事务操作事务日志是实时写入磁盘的每个事务的操作都会被先被写入事务日志中然后根据需要将数据写入到磁盘中慢查询日志记录执行时间超过指定阈值的查询语句定期写入磁盘逻辑日志用于记录事务对数据的修改操作在事务执行时会先将事务的修改操作记录到中当事务回滚时会根据中的记录撤销事务的修改操作日志通过在内存中维护来实现当日志空间被使用完时会将部分日志写入磁盘中以释放内存空间这个过程会将已经提交的事务的日志写入磁盘表空间将数据保存在表空间中表空间本质是虚拟文件系统由磁盘上的一个或文件组成表空间用于多种用途不仅仅是存储表和索引表空间还包含日志重新创建旧行把呢不能所需的信息修改缓冲区双写缓冲区和其他内部结构配置表空间文件目录配置表空间文件回收表空间的唯一方法是将数据导出然后关闭并删除所有文件再修改配置重启让创建新的空文件最后再恢复数据选项允许你将配置为每一个表使用单独的文件可以使得删除表时更容易回收空间其他配置选项选项控制如何将二进制日志刷新到磁盘默认为意味着将执行刷新并保持二进制日志的持久化和安全性并发如果你发现遇到并发瓶颈最好的选择是对数据进行分片如果分片不行可能需要限制并发性限制并发性的最基本方法是使用变量该变量限制了内核中同时可以有多少线程使用一个两阶段的过程来尝试让线程尽可能高效的进入内核两阶段策略减少了操作系统调度器导致的上下文切换开销线程受限休眠指定的微秒数然后再重试如果仍然不能进入它将进入一个等待线程队列将控制权交给操作系统除了缓冲池和其他结构中的瓶颈之外在提交阶段还有一个并发瓶颈主要是由于刷新操作造成的限制变量控制着可以同时提交的线程数高级设置常见的设置控制如何生成自动递增的主键值高并发插入时这可能会成为一个瓶颈很多事务在等待自动增量锁和有多少后台线程可用于操作的管理和设计良好的逻辑设计和物理设计是高性能的基石应该根据系统将要运行特定的查询设计选择优化的数据类型的几个原则更小的通常更好占用磁盘内存和缓存的空间更少同时处理时需要周期也更少通常会更快简单为好简单数据类型的操作需要更少的周期日志存储为内置类型而不是字符串使用整型数据存储尽量避免存储如果查询包含可为的列更难优化可为的列使得索引索引通记和值都更复杂选择具体类型的注意点数据类型可以存储相同类型的数据但在存储的值范围表示的精度或者需要的物理空间磁盘和内存存在差异和可以存储相同类型的数据时间和日期精确秒只使用一半的存储空间还会根据时区变化而且具备特殊的自动更新能力的取值范围至之间时间戳超出这个范围的值将被截断或转换为的自动更新在中可以使用和选项来自动更新类型的字段选项可以指定在插入数据时自动使用当前时间戳填充该字段而则可以在更新数据时自动更新该字段的值的时区默认使用服务器的时区进行存储和转换的精度默认为秒可以通过指定小数位来增加精度整数类型小数类型由于额外的空间需求和计算成本应该尽量只对小数进行精确计算时才使用字符串类型存储可变长度的字符串它比固定长度的类型更节省空间需要额外使用或字节记录字符串的长度但是由于行是可变的在更新时可能会增长这会导致额外的工作如果行的增长使得原位置无法容纳更多内容则处理行为取决于所使用存储引擎适用场景字符串列的最大长度远大于平均长度列的更新很少不用考虑碎片问题使用了像复杂字符集长度固定存储值时删除所有尾随空格如果需要比较值使用空格填充适用场景存储非常短的字符串所有值的长度都几乎相同的情况对于经常修改的数据固定长度的行不容易产生碎片和二进制字符串存储的是字节而不是字符填充使用不会在检索时去除填充值字节比较的优势大小写不敏感和存储空间开销一致使用更短的列的优势索引效率使用更短的列可以减少索引的存储空间和检索时间从而提高索引的效率数据完整性强制限制输入的数据长度强约束性内存使用虽然列的空间开销根据实际存储的字符串长度但在某些情况下可能需要为查询分配一定的内存空间和类型存储很大的数据而设计的字符串类型分别采用二进制和字符串存储当和值太大时会使用独立的外部存储区域此时每个值在行内字节的存储空间然后在外部存储区域需要足够来存储实际的值位压缩数据类型使用值中的单个位来紧凑存储数据的类型所有这些位压缩类型底层存储和处理方式都是字符串类型选择标识符标识符是引用行及通常使其唯一的方式为标识符列选择合适的数据类型非常重要标识符列也可能在其他表中作为外键因此为标识符列选择数据类型时应该与联接表中的对应列保持一致类型应该完全匹配包括等属性推荐使用整数类型需要考虑选择合适的整数大小避免使用字符串类型作为标识符很消耗空间标识符对于完全随机的字符串要小心这会减慢和某些查询插入会写到索引的随机位置使变慢这会导致页分裂磁盘随机访问以及聚簇索引存储引擎产生聚簇索引碎片查询也会变慢因为逻辑上相邻的行会广泛分布在磁盘和内存中对于所有类型的查询随机值都会导致缓存的性能低下因为它们会破坏引用的局部性而这正是缓存的工作原理设计中的陷阱太多的列的存储引擎通过在服务器和存储引擎之间以行缓冲区格式复制行来工作然后服务器将缓冲区解码为列将行缓冲区转换为具有解码列的行数据结构操作代价非常高转换成本取决于列数太多的联结如果需要以高并发性快速执行查询那么每个查询最好少于十几个的表不是虚拟值在特定情况下可以使用也会对值进行索引创建高性能的索引索引优化应该是对查询性能优化最有效的手段索引可以包含多列那么列的顺序也十分重要因为只能有效地使用索引地最左前缀列索引类型中索引是在存储引擎层而不是服务器层实现的索引每个叶子节点都包含指向下一个叶子节点的指针从而方便遍历叶子节点范围通常意味着所有值都是按顺序存储的并且每一个叶子到根的距离相同索引能够加快数据访问的速度在查询某些条件的数据时存储引擎不再需要进行全表扫描是按照索引列中的数据大小顺序存储的所以很适合按照范围来查询自适应哈希存储引擎发现某些索引的值被非常频繁的访问时它会在原有的索引之上在内存中再构建一个哈希索引这让索引也具备了一些哈希索引的优势索引的查询类型适用于全键值键值范围或键前缀查找对如下有效全值查询指和索引中的所有列匹配匹配最左前缀使用索引的前几列匹配列前缀也可以只匹配某一列的值的开头部分匹配范围值精确匹配某一列而范围匹配另外一列只访问索引的查询索引的限制不是按照索引的最左列开始查找则无法使用索引不能跳过索引中的列如果查询中有某列的范围查询则其右边所有列都无法使用索引优化查找全文索引是一种特殊类型的索引它查找的是文本中的关键词而不是直接比较索引中的值在相同的列上同时创建全文索引和基于值的索引并不会有冲突全文索引适用于操作适用索引的优点大大减少服务器需要扫描的数据量索引可以帮助服务器避免排序和临时表数据有序索引将随机变为顺序高性能的索引策略前缀索引和索引的选择性有时候为了提升索引的性能同时也节省索引空间可以只对数据的前一段字符进行索引但是会降低索引的选择性索引的选择性是指不重复的索引和数据表的记录总数的比值选择性越高则查询效率越高选择性高的索引可以让在查找时过滤掉更多的行前缀索引是一种能使索引更小更快的有效方法缺点无法使用前缀索引做和操作也无法使用前缀索引做覆盖扫描多列索引存在一种技术索引合并策略在一定程度上可以使用表中的多个单列索引来定位指定的行当优化器需要对多个索引做联合操作时通常需要在算法的缓存排序和合并操作上耗费大量和内存资源尤其是当其中有些索引的选择性不高需要合并扫描返回的大量数据的时候优化器不会把这些操作计算到查询成本中使得查询成本被低估选择合适的索引列顺序正确的顺序依赖于该索引的查询语句同时还需要考虑如何更好地满足排序和分组操作的需要不需要考虑排序和分组的情况下将选择性高的列放在索引的最前列同时考虑如何避免大量随机和排序可能更重要实际建立索引需要考虑每个列的选择性同时也要考虑特殊值极端情况聚簇索引一种数据存储方式聚簇索引是在同一个结构中保存索引和数据行当表有聚簇索引时它的数据行实际上存放在索引的叶子页中如果你没有定义主键会选择一个唯一的非空索引代替如果没有这样的索引会隐式定义一个主键来作为聚簇索引缺点所有这种隐式主键的表都依赖一个单点的自增值会导致非常高的锁竞争聚簇索引的优点相互关联的数据保存在一起例如在实现电子邮箱应用时可以根据用户来聚集数据这样只需要从磁盘读取少数的数据页就能获取某个用户的全部邮件如果没有使用聚簇索引则每封邮件都可能导致一次磁盘数据访问更快聚簇索引将索引和数据保存在同一个中因此从聚簇索引中获取数据通常比在非聚簇索引中查找要快使用覆盖索引扫描的查询可以直接使用页节点中的主键值聚簇索引的缺点不适用数据全部放在内存中的存储引擎插入速度严重依赖于插入顺序更新聚簇索引列的代价很高因为会强制将每个被更新的行移动到新的位置基于聚簇索引的表在插入新行或主键被更新导致移动行可能面临页分裂的问题页分裂会导致表占用更多的磁盘空间可能会导致全表扫描变慢尤其是行比较稀疏或者由于页分裂导致数据存储不连续的时候二级索引会存储引用行的主键列二级索引空间变大的二级索引叶子存储主键值并以此为指向行的指针这种策略减少了当出现行移动或者数据页分裂时二级索引的维护工作在移动行时无需更新二级索引的指针命令是用于优化数据库中表的命令它可以清理表中的空间碎片释放未使用的空间还可以为表重建索引从而提高表的性能和查询速度执行命令时表会被锁定因此在表很大的情况下可能会导致一段时间的停机什么时候按照主键顺序插入反而会更糟高并发工作负载下按主键顺序插入可能会造成明显的写入竞争并发插入可能导致间隙锁的竞争另一个热点可能是锁机制负载索引只有索引可以用于覆盖索引减少回表操作使用索引扫描来做排序生成有序结果的两种方式通过排序操作按照索引顺序扫描只有当索引的顺序和子句的顺序完全一致并且所有列的排序方向倒序或正序都一样时才能使用索引来对结果做排序特殊情况如果前导列为常数可以不满足最左前缀的要求不会使用索引排序引用了不再索引中的列前导列为范围查询且没有进行指定冗余和重复索引重复索引是指在相同的列上按照相同顺序创建的相同类型的索引需要单独维护重复的索引优化器在优化查询的时候也需要逐个地进行评估这会影响性能同时也浪费磁盘空间一般来说增加新索引会导致等操作的速度变慢特别是当新增索引后达到了内存瓶颈的时候维护索引和表维护表有三个主要目的找到并修复损坏的表维护准确的索引统计信息减少碎片如果存储引擎向优化器提供的扫描行数信息不准确或者执行计划本身太复杂以致无法准确地获取各个阶段匹配的行数那么优化器会使用索引统计信息来估算扫描行数而衡量成本的主要指标就是一个查询需要扫描多少行如果表没有统计信息或者统计信息不准确优化器就很有可能做出错误的决定可以通过运行来重新生成统计信息以解决这个问题减少索引和数据的碎片索引可能会产生碎片化降低查询的效率三种类型的数据碎片行碎片这种碎片指的是数据行被存储在多个地方的多个片段中行间碎片行间碎片是指逻辑上顺序的页或者行在磁盘上不是顺序存储的影响全表扫描和聚簇索引扫描之类的剩余空间碎片指数据页中有大量的空余空间查询性能优化查询也需要合理的设计否则库表结构再合理索引再合适也无法实现高性能如果把查询看作一个任务那么它由一系列子任务组成每个子任务都会消耗一定的时间如果要优化查询实际上要优化其子任务要么消除其中一些子任务要么减少子任务的执行次数优化数据访问大部分性能低下的查询都可以通过减少访问的数据量进行优化低效查询分析步骤确认应用程序是否检索大量且不必要的数据确认服务器层是否再分析大量不需要的数据行一些典型不好的案例查询不需要的记录使用来限制多表联接时返回全部列只取需要的列会带来额外的内存和消耗重复查询相同的数据是否在扫描额外的记录衡量查询开销指标响应时间扫描的行数返回的行数这三个指标都会被记录到的慢日志中响应时间由服务时间和排队时间组成扫描行数和返回的行数查看扫描的行数很大程度能够说明该查询找到需要的数据效率高不高能够使用如下三种方式应用条件性能从好到坏在索引中使用条件来过滤不匹配的记录存储引擎中完成使用索引覆盖来返回记录然后从索引中过滤不需要的记录并返回命中的结果服务器层实现从数据表中返回数据然后过滤不满条件的记录重构查询的方式在优化有问题的查询时目标是应该是找到获得实际需要的结果的替代方法并意味着从返回相同的结果集一个复杂查询还是多个简单查询切分查询分解联接查询让缓存的效率更高执行单个查询可以减少锁的竞争在应用层做联接可以更容易对数据库进行拆分更容易做到高性能和可拓展查询执行的基础当用发送一个请求时做了写什么客户端给服务器发送一条查询语句服务其端进行解析预处理在由优化器生成对应的执行计划根据优化器生成的执行计划调用存储引擎来执行查询将结果返回给客户端可以得操计算当前查询的成本的查询优化策略静态优化直接对解析树进行分析并进行优化第一次完成之后就一直有效动态优化和查询上下文有关每次查询都需要重新评估能处理的优化类型重新定义联接表的顺序将外连接转换为内连接代数等价变换规则优化和列表的比较将列表中的数据先排序然后通过二分查找确定列表中的值是否满足条件优化联接查询确保或者字句中的列有索引创建索引需要考虑联接的顺序只需要在联接表的第二个表相应列创建索引确保任何和表达式只设计一个表中的字段这样才能使用到索引优化和最好可以使用到相应索引深度分页优化的最简单方法就是尽可能地使用索引覆盖查询而不是查询所有行优化只有子啊扫描所有满足地行数之后才会知道行数使用如果可以利用覆盖索引性能还是不错的表分区中存储引擎支持表分区之后默认支持表分区只支持水平分区不支持垂直分区相同分区表的不同分区必须使用相同的存储引擎分区可以使一个表的不同分区存储在不同位置用户选择的用于完成数据划分的规则被称为分区函数在中它可以是模数针对一组范围或值列表的简单匹配内部哈希函数或线性哈希函数在和分区的情况下分区列的值被传递给分区函数该函数返回一个整数值表示应该存储该特定记录的分区的编号此函数必须是非恒定和非随机的可以不执行任何查询但必须返回或者讲连接如果用户名密码认证通过之后连接器会从权限表里面查询出你拥有的权限之后这个连接里面的权限判断都依赖此时读到的权限这意味着一个用户建立连接之后即使后来对这个用户的权限进行了修改也不影响已经存在的连接客户端如果太久时间没有动静连接器会自动讲它断开这个时间由参数决定在执行过程中临时使用的内存是管理在连接对象中的这些资源会在连接断开的时候才释放可以采取两种方案定时断开长连接可以执行来重新初始化连接查询缓存只要对一个表进行更新这个表的所有查询缓存都会被清空分析器分析器先会做词法分析语法分析根据词法分析的结果语法分析器会根据语法规则判断你输入的这个语法是否满足语法优化器确定执行方案经过了分析器就知道你要做什么在开始执行之前要经过优化器的处理优化器是在表里面有多个索引的时候决定使用哪个索引或者在一个语句中有多表关联的时候决定各个表的连接顺序执行器开始执行的时候要先判断一下你对这个表有没有执行查询的权限的更新数据操作使用了技术先写日志再写磁盘当一条记录需要更新时会先把记录写入到并更新内存引擎在适当的时候会将这个记录更新到磁盘一般在系统空闲的时候做大小是固定的从开开始写写到末尾又回到开头循环是当前记录的位置是当前要擦除的位置擦除记录前要把记录更新到数据文件和之间是空着的部分可以用来记录新的操作如果追上时必须停下来擦除一些操作有了可以保证即使数据库发生异常重启之前提交的记录也不会丢失这个能力称为设置为表示每次事务的都持久化到磁盘这样可以保证异常重启之后数据不丢失是一块内存用来先存放日志真正把日志写入到文件是在执行语句的时候属于特有日志数据层日志设置为是表示每次事务的都持久化到磁盘可以保证异常重启之后不丢失和的区别特有时层特有物理日志记录在某个数据页做了什么修改逻辑日志记录这个语句的原始逻辑循环写固定空间会写完追加写如何知道是完整的格式的最后有格式的最后会有一个两阶段提交的写入被拆分成两个步骤和被称为两阶段提交在崩溃恢复阶段如果的状态是状态则需要考虑中该事务是否提交和是如何关联起来的它们有一个共同的数据字段崩溃的恢复的时候会按顺序扫描事务隔离的事务支持是在引擎层实现的隔离级别越高效率就会越低不同隔离级别下开启事务是已视图逻辑结果为准在实现上数据库会创建一个视图在可重复读隔离级别下这个视图是在事务启动时创建的整个事务存在期间都使用这个视图在读提交隔离级别下这个视图是在每个语句开始执行的时候创建的读未提交隔离级别下直接返回记录上的最新值没有视图概念视图隔离的实现在中实际上每次记录在更新的时候都会同时记录一条回滚操作通过回滚操作可以得到前一个状态的值这就是数据库的回滚日志会在系统判断当没有事务再需要使用这些回滚日志时会被删除就是当系统里没有比这个回滚日志更早的的时候尽量不要使用长事务长事务意味着系统里面会存在很老的事务视图这些事务随时可能访问数据库里面任何的数据所以再事务提交之前可能用到的回滚记录都需要保留占据大量存储空间长事务还会占用锁资源索引索引的目的就是提高数据查询的效率索引模型常见的数据结构哈希表有序数组搜索树哈希索引优点适用于等值查询缺点不适用范围查询有序数组适用于等值查询和范围查询插入记录成本较大只适用于静态存储引擎索引不止在内存中还要磁盘中多叉树结构是为了让一个查询尽量少读磁盘访问尽量少的数据块基于主键索引查询大多数时间可以减少回表查询索引维护树为了维护索引有序性在插入新值的时候需要做必要的维护当不是以追加方式插入时会造成数据挪动甚至页分裂主键长度越小普通索引的叶子节点就越小普通索引占用的空间也越小建立联合索引时需要考虑顺序已经空间重建索引的过程会创建一个新的索引把数据按顺序插入这样页面的利用率最高索引更紧凑更省空间之后支持索引下推可以在索引遍历的过程种对索引中包含的字段先做判断直接过滤掉不满足条件的记录减少回表次数全局锁和表锁根据加锁范围分为全局锁表锁行锁加上全局读锁只能执行操作适用于全库逻辑备份阶段适用释放锁官方自带的逻辑备份工具是当使用参数的时候导数据之前就会启动一个事务来确保拿到一致性视图而由于的支持这个过程中数据是可以正常更新的需要考虑存储引擎是否支持事务可以适用让数据库只读状态但这期间权限用户仍然可以进行更新操作可以禁止复制模式下仍可以执行表级别锁分为表锁元数据锁表锁的语法使用释放锁会限制别的线程的读写外也限定了本线程接下来的操作对象线程执行线程也只能执行读写读不能访问其它表元数据锁访问一个表的时候会被自动加上加入对一个表进行增删改查时加读锁变更表结构加写锁通常在一个事务中锁获得的锁会在事务提交或回滚时才释放存储引擎使用两阶段锁定协议在这个协议中一个事务一旦获取锁她可以继续获得更多的锁但它不能释放任何锁知道事务到达提交点并提交或回滚如果长事务获取某个表元数据锁的读锁不释放另外一个线程尝试变更表结构获取元数据所的写锁会被阻塞等待读锁释放如果其它线程尝试去获取这个表的读锁也会被阻塞因为如果允许更多的读锁在写锁之前被获取那么持有读锁的线程可能会无限期延迟写锁的获取造成写锁饥饿可以在变更表结构之前尝试是否存在长事务设定等待时间行锁不是所有存储引擎都支持行锁行锁是由存储引擎实现的在事务中行锁在是在需要的时候才加上但并不是不需要就立即释放而是等到事务结束时才释放这就是两阶段锁协议如果你的事务需要锁定多行要把最可能造成锁冲突的最可能影响并发度的锁尽量往后放死锁和死锁检测当并发系统中不同线程出现循环资源依赖涉及的线程都在等待别的线程释放资源时就会导致这几个线程都进入无限等待的状态称为死锁出现死锁后有两种策略直接进入等待直到超时超时时间可以通过参数来设置发起死锁检测发现死锁后主动回滚死锁链条中的某个事务让其它事务得以继续执行讲参数设置为开启这个逻辑正常清空下一般使用方式二主动死锁检测但是会给系统造成额外负担需要检测检测死锁消耗大量资源热点行更新导致的性能问题的解决思路确保业务一定不会出现死锁可以临时把死锁检测关掉控制并发度降低进入存储引擎的锁占用请求同时可以考虑讲锁占用分散比如一个账户分成个账户增加锁数量事务是不是隔离的并不是一个事务的起点在执行到它们之后的第一个操作表的语句事务才真正启动如果要马上启动一个事务可以使用命令快照在中工作原理在可重复度隔离级别下事务在启动时常见快照这个快照基于整库每个事务有一个唯一事务按申请顺序严格递增修改数据会创建依据会记录每个数据版本的事务更新数据都是先读后写而这个读只能读当前的值称为当前读语句如果加锁也是当前读可重复度的核心是一致性读而事务更新数据的时候只能采用当前读如果当前的锁记录的行锁被其它事务占用的话就需要进入锁等待对于可重复读查询只承认在事务启动前就已经提交完成的数据对于读提交查询只承认在语句启动前就已经提交完成的数据普通索引和唯一索引存储引擎的数据是按页为单位读写的每个数据页的大小默认是普通索引查到这个满足条件第一个记录需要查询下一个记录唯一索引查找到第一个满足条件的记录后就会停止检索更新过程当需要更新一个数据页如果数据页在内存就直接更新而如果这个数据页还没有在内存的话在不影响数据一致性的前提下会讲这些更新操作缓存在中这样就不需要从磁盘中读入这个数据页下次查询需要访问这个数据页的时候将数据页读入内存然后执行中与这个页有关的操作是可以持久化的数据在内存中有拷贝也会被写入到磁盘上用的是里的内存可以通过来动态设置百分比设置将的操作应用到数据页得到的最终结果的过程称为除了访问这个数据页会触发外系统有后台线程会定期在数据库正常关闭的过程中也会执行操作使用的好处更新操作首先记录到减少读磁盘减少数据读入内存减少的使用使用的条件唯一索引所有更新操作都要先判断这个操作是否违反唯一性约束更新不能使用只有普通索引可以使用的使用场景操作是真正进行数据更新的时刻在一个数据页做之前记录的变更越多收益就越大对于写多杜少的业务来说使用效果最好适用于写多读少的场景读多写少不会降低随机读取磁盘的次数同时会增加维护的代价关闭的方式的执行流程从磁盘读入数据页到内存从里找出这个数据页的记录依次应用得到新的数据页写这个包含数据的更新和的变更普通索引和唯一索引在查询方面相差不大对于更新性能方面影响比较大和主要节省的是随机写磁盘的消耗转换成顺序写主要节省的则是随机读磁盘的消耗优化器的逻辑优化器选中索引的目的就是找到一个最优的执行方案用最小的代价去执行语句扫描行数是影响执行代价的因素置一扫描行数越少意味着访问磁盘的次数越少消耗资源越少优化器判断扫描行数需要根据统计信息来估算记录数这个统计信息就是索引的区分度可以查看每个索引的基数但并不准确统计信息的来源通过采样的方式选中个数据页统计这些页面的不同值求平均值索引页数可以重新统计索引信息索引选择异常和处理使用强行选择一个索引会根据词法解析的结果分析出可能可以使用的索引作为候选项然后再候选列表中依次判断每个索引需要扫描的多少行如果的索引再候选列表中就直接选中这个索引修改语句引导使用我们期望的索引新建一个更合适的索引来提供给优化器做选择或删掉无用的索引如何给字符串加索引字符串索引使用前缀索引定义好长度就可以做到即节省空间又不用额外增加太多查询成本建立索引需要关注的是区分度前缀索引还会影响到覆盖索引的优化操作增加回表操作刷脏页的控制策略首先需要告知所在主机的能力这样才能知道需要全力刷脏页的时间可以刷多快这个参数他会告诉你的磁盘能力这个值建议设置为磁盘的的刷盘速度要参考两个因素一个是脏页比例一个的写盘速度是脏页比例的上限脏页比例是通过得到的版本之后默认关闭的一个策略一个查询请求需要在执行过程中先一个脏页如果这个数据页旁边的数据页也是脏页就会把这个邻居也刷掉可能产生连锁反应导致查询需要等待大量时间可以通过控制这个行为这个行为可以减少随机表数据删除一半表文件大小不变在之前表结构存在为后缀的文件里而之后允许将表结构定义在系统数据表中表结构定义占用的空间很小决定文件大小一般是表数据中的表数据即可以存在在共享表空间中也可以是单独的文件这个行为由参数控制表的数据放在系统共享表空间也就是跟数自点放在一起表示每个表数据存储在一个以为后缀的文件中放在共享表空间中即使表被删除了空间也不会回收数据按页存储如果我们删掉一个数据页上的所有记录整个数据页就可以复用空间不会被回收插入不是按主键顺序插入也会导致空洞行为可以通过重建表的方式去除空洞如果在这个过程中有新的数据要写入到表就会造成数据丢失的实现方式在不同引擎中有不同的实现方式引擎把一个表中的总行数存放在磁盘上会直接返回这个个数效率高需要把数据一行一行从引擎里面读出来然后累计计数为为什么不把直接存起来呢因为即使在同一时刻的多个查询由于机制返回的行数也是不确定的优化器计算是在保证逻辑正确的前提下优化器会选择最小的那个索引树进行遍历不同的用法是一个聚合函数对于返回的结果集一行行判断如果的参数不是字段主键的工作原理全字段排序会给每个线程分配一块内存用于排序称为排序可能在内存中完成也可能需要使用外部排序这取决于排序所需的内存和参数如果排序所需内存超过那么则需要磁盘临时文件进行辅助排序外部排序一般使用归并排序越小需要分成的份数就越大排序认为排序的单行长度太大会怎么办用于排序行数据的长度的一个参数如果超过这个参数就会换个算法新的算法只需要排序的列和主键的设计思想如果内存够就要多利用内存减少磁盘访问排序需要回表需要更多的磁盘读如果索引能够保证数据有序则不需要进行额外的排序每个引擎用来唯一标识数据行的信息对于有主键的表来说就是主键对于没有主键的来说这个就是由系统生成的引擎不是索引组织表可以认定为一个数组这个就是数组的下标是不是所有的临时表都是内存表这个配置限制了内存临时表的大小默认值是如果临时表的大小超过了这个值那么内存临时表就会转换成磁盘临时表磁盘临时表使用的默认引擎是当使用磁盘临时表的时候对应的就是一个没有显式索引的表的排序过程优先队列排序不需要使用临时文件触发的条件子句存在返回的行数较少时无适用索引查询中的排序列没有响应的索引或者索引不能被有效利用可能会考虑其它排序方法文件排序或优先队列排序为什么语句逻辑相同性能差异却巨大对索引字段做函数操作或者运算操作可能会破坏索引值的有序性因此优化器就决定放弃走树搜索功能对参数使用函数操作可能就不会使用分析一条语句如果上面展示了说明使用了覆盖索引隐式类型转换数据转化规则字符串和数字做比较的话是将字符串转换成数字为什么有数据类型转换就需要走全索引扫描如果数据库字段进行了隐式类型转换就会执行数据函数从而可能放弃走索引走全表扫描连表查询两个表建立的索引不关数据类型要相同还要保证使用的字符集需要相同字符集不同可能会需要进行类型转换需要对驱动表或者被驱动表的索引字段进行函数操作查询一行的语句也会执行这么慢吗上述执行很慢排查思路使用看是否在等待锁会隐式获取表读锁这张表我们就可以直接找出造成阻塞的直接连接被断开的时候会自动回滚这个连接里面正在执行的事务的存储引擎中如果查询一个没有索引的列通常会执行全表扫描但是关于锁的行为有一些注意事项锁的类型取决于事务隔离级别和查询类型对于隔离级别只锁定那些真正读取到的索引记录对于隔离级别在某些情况下可能会锁定更多的记录非唯一索引和唯一索引的行为是不同的如果你在一个非唯一索引的列上执行一个写操作即使该列有索引可能仍然需要锁定多个记录因为不知道有多少记录的值可能匹配到给定的条件对于唯一索引通常直到只有一个记录会匹配上所以它只需要锁定那个记录如果一个列没有索引对于或如果对没有索引的列使用了子句需要执行全表扫描并锁定符合条件的每一行对于写操作如果查询的列没有索引也会执行全表扫描并锁定所有匹配条件的行幻读幻读有什么问题幻读指的是一个事务在前后两次查询同一范围的时候后一次查询看到了前一次查询没有看到的行幻读说明在可重复读隔离级别下普通的查询是快照读是不会看到别的事务插入的数据因此幻读只在当前读下才会出现幻读仅专指新插入的行行锁无法锁住新插入的行为了解决幻读问题引入了间隙锁数据行是可以加入锁的实体数据行之间的间隙也是可以加入锁的实体跟间隙锁存在冲突关系的是往这个间隙中插入一个记录这个操作间隙锁之间都不存在冲突间隙锁和行锁合称每个是前开后闭区间间隙锁是在可重复读隔离级别下才会生效的要解决可能出现的数据和日志不一致的问题需要把格式设置为间隙锁加锁规则原则加锁的基本单位是原则查找过程中访问到的对象才会加锁普通索引如果使用了覆盖索引且使用的是就不会访问主键索引不会给主键索引加锁优化索引上的等值查询给唯一索引加锁的时候退化为行锁优化索引上的等值查询向右遍历时且最后一个值不满足等值条件的时候退化为间隙锁一个唯一索引上的范围查询会访问到不满足条件的第一个值为止锁住字段使用了覆盖索引只锁住覆盖索引系统会认为你接下来要更新数据顺便给主键索引添加满足条件的行锁在删除数据的时候尽量加这样不仅可以控制删除数据的条数让操作更安全还可以减小加锁的范围实际上是由间隙锁和行锁组成具体执行的时候是要分成间隙锁和行锁两部分来执行的读提交隔离级别在外键场景下还是有间隙锁的读提交隔离级别下还有一个优化语句执行过程中加上的行锁语句执行完成后就要把不满足条件的行上的行锁直接释放了不需要等到事务提交常见问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-20 22:48:43',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/yangxiao.github.io/img/headimg.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/yangxiao.github.io/" accesskey="h"><div class="title">后端开发</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/yangxiao.github.io/tags/Mysql/" style="font-size: 1.05rem;">Mysql<sup>1</sup></a><a href="/yangxiao.github.io/tags/test/" style="font-size: 1.05rem;">test<sup>1</sup></a><a href="/yangxiao.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 1.05rem;">中间件<sup>3</sup></a><a href="/yangxiao.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.05rem;">分布式<sup>1</sup></a><a href="/yangxiao.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 1.05rem;">搜索引擎<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yangxiao.github.io/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="article-meta tags"><a class="article-meta__tags" href="/yangxiao.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>中间件</span></a><a class="article-meta__tags" href="/yangxiao.github.io/tags/Mysql/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Mysql</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Mysql</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-12-20T14:48:43.327Z" title="发表于 2023-12-20 22:48:43">2023-12-20</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-12-20T14:48:43.321Z" title="更新于 2023-12-20 22:48:43">2023-12-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://yangxiao23.github.io/yangxiao.github.io/2023/12/20/Mysql/"><header><a href="/yangxiao.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" tabindex="-1" itemprop="url">中间件</a><a href="/yangxiao.github.io/tags/Mysql/" tabindex="-1" itemprop="url">Mysql</a><h1 id="CrawlerTitle" itemprop="name headline">Mysql</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">XIAO YANG</span><time itemprop="dateCreated datePublished" datetime="2023-12-20T14:48:43.327Z" title="发表于 2023-12-20 22:48:43">2023-12-20</time><time itemprop="dateCreated datePublished" datetime="2023-12-20T14:48:43.321Z" title="更新于 2023-12-20 22:48:43">2023-12-20</time></header><h1 id="高性能Mysql"><a href="#高性能Mysql" class="headerlink" title="高性能Mysql"></a>高性能Mysql</h1><h2 id="Mysq架构"><a href="#Mysq架构" class="headerlink" title="Mysq架构"></a>Mysq架构</h2><p>逻辑架构分为三层：</p>
+<ul>
+<li><p>连接层：客户端包含的服务，包括连接处理、身份验证、确保安全性。</p>
+</li>
+<li><p>核心功能层：查询解析、分析、优化以及所有的内置函数解析，<strong>所有跨存储引擎的功能</strong>都在这一层实现。 存储过程、触发器、视图等。</p>
+</li>
+<li><p>存储引擎层:负责Mysql数据的存储和提取。服务器通过存储引擎 API和存储引擎通信，屏蔽不同存储引擎差异。不同存储引擎之间不会相互通信，只会简单相应服务器的请求。</p>
+<p>连接管理与安全性:</p>
+</li>
+<li><p><strong>每个客户端连接都会在服务器进程中拥有一个线程</strong>，该连接的查询只会在这个单独的线程中执行，该线程驻留在一个内核或者CPU上。</p>
+</li>
+<li><p>服务器维护了一个线程池缓冲区，用于存放已就绪的线程，不需要频繁创建和销毁线程。</p>
+</li>
+<li><p>服务器堆客户端进行身份验证，基于用户名密码等手段。验证是否具备发出每个查询的权限。</p>
+</li>
+</ul>
+<p>优化和执行：</p>
+<ul>
+<li><p>mysql解析查询创建内部数据结构（解析树），然后对其进行各种优化，重写查询、决定表的读取顺序、选择合适索引等。</p>
+</li>
+<li><p><strong>优化器不关心表使用的存储引擎</strong>，但存储引擎对于查询优化是有影响的。优化器会向存储引擎询问它的功能、某个操作的成本，以及表数据的信息。</p>
+</li>
+</ul>
+<p>并发控制：</p>
+<ul>
+<li><p>读写锁：共享锁和排它锁。<strong>锁的粒度</strong>：提高共享资源并发性让锁定对象更有选择型，尽量只锁定需要修改的数据。</p>
+<ul>
+<li><p>同时需要考虑<strong>加锁也需要消耗资源</strong>，获取锁、检查锁状态、释放锁都会增加系统开销。</p>
+</li>
+<li><p>锁定策略是<strong>锁开销和数据安全性之间的平衡</strong>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>行级锁是在存储引擎 而不是在服务器中实现的。MVCC使用某个时间的快照实现在很多情况下避免加锁操作，开销更低。</p>
+</blockquote>
+<p>隔离级别：</p>
+<ul>
+<li><p>Read Uncommitted(未提交读)</p>
+<ul>
+<li><p>事务中可以查看其它事务中还没有提交的修改。脏读</p>
+</li>
+<li><p>Read Uncommitted性能不会比其它级别好太多，却缺乏其它级别的好处。</p>
+</li>
+</ul>
+</li>
+<li><p>READ COMMITTED（提交读）</p>
+<ul>
+<li>一个事务可以看到<strong>其他事务在它开始后的提交的修改</strong>。</li>
+</ul>
+</li>
+<li><p>REPEATABLE READ（可重复读）</p>
+<ul>
+<li><p>无法解决幻读问题，当某个事务在读取某个范围内的记录时，另一个事务又在该范围内插入了新的记录，再次读取，会产生幻行。</p>
+</li>
+<li><p>InnoDB通过MVCC解决幻读问题。</p>
+</li>
+</ul>
+</li>
+<li><p>SERIALIZABLE（可串行化）</p>
+<ul>
+<li>强制事务按序进行</li>
+</ul>
+</li>
+</ul>
+<p>事务日志</p>
+<blockquote>
+<p>事务日志有助于提高事务的效率。存储引擎只需要更改内存中的数据副本，而不用每次修改磁盘中的表，这是非常快的。 然后把更改的记录记入事务日志，事务日志会被持久化保存到磁盘上。事务日志采用追加写的操作，顺序IO。</p>
+</blockquote>
+<p>事务</p>
+<blockquote>
+<p>Mysql不在服务器层管理事务，事务是由下层的存储引擎实现的。<strong>不要在事务中混合使用存储引擎。</strong></p>
+</blockquote>
+<p>MVCC</p>
+<ul>
+<li><p>InnoDB通过为每个事务在启动时分配一个事务ID来实现MVCC。<strong>该ID在事务首次读取任何数据时分配</strong>，在该事务中修改记录时，将向Undo日志写入一条说明如何恢复该更改的Undo记录，并且事务的回滚指针指向该Undo日志记录。</p>
+</li>
+<li><p>所有Undo日志写入也都会写入Redo日志</p>
+</li>
+<li><p>在记录中保留这些额外信息带来的结果是，大多数读取查询都不再需要获取锁。缺点是存储引擎必须在每一行中存储更多数据。</p>
+</li>
+<li><p>MVCC仅适用于REPEATABLE READ和READ COMMITTED隔离级别。READ UNCOMMITTED查询不会读取适合其事务版本的行版本。SERIALIZABLE读取会锁定他们返回的每一行。</p>
+</li>
+</ul>
+<p>数据文件结构</p>
+<p>   在8.0版本中，Mysql将表的元数据重新设计为一种数据字典，包含在表的.ibd文件中。使得表结构上的信息支持事务和原子级数据定义更改。在操作期间，不再仅仅依赖information_schema来检索表定义和元数据，引入了字典对象缓存，基于最近最少适用的内存缓存。每个表的.ibd和.frm文件被替换为已经被序列化的字典信息。</p>
+<blockquote>
+<ul>
+<li><p>.idb文件：InnoDB存储引擎使用的数据文件，用于存储InnoDB表的数据和索引。如果该文件丢失或损坏，可能导致数据丢失或无法访问。</p>
+</li>
+<li><p>.frm文件：mysql存储表定义的文件，用于存储表的结构信息，包括表的字段、类型、长度、约束等信息。.frm丢失或损坏，可能导致无法相关的表，但是数据本身并不会丢失。</p>
+</li>
+</ul>
+</blockquote>
+<p>表的元数据信息：</p>
+<ul>
+<li><p>表名</p>
+</li>
+<li><p>字段：每个字段的名称、数据类型、长度，是否可以为空</p>
+</li>
+<li><p>约束：表级别的约束，主键、唯一键、外键等。</p>
+</li>
+<li><p>索引：表的索引信息，索引名称、索引类型、索引字段等。</p>
+</li>
+<li><p>视图：表的视图信息，视图名称、视图定义等。</p>
+</li>
+<li><p>存储引擎：表的存储引擎类型，如InnoDB、MyIsam。</p>
+</li>
+<li><p>表的创建时间、更新时间。</p>
+</li>
+</ul>
+<p>InnoDB表</p>
+<p>  InnoDB表是基于聚簇索引构建的。聚簇索引提供了非常快速的主键查找。但是，<strong>二级索引需要包含主键列，如果主键较大，则其它索引也会很大。如果表中的索引较多，主键应当尽量小。</strong></p>
+<blockquote>
+<p>InnoDB内部做了很多优化，包括从磁盘预取的可预测性读、自动在内存中构建哈希索引（自适应哈希）、用于加速插入操作的插入缓冲区。</p>
+</blockquote>
+<h2 id="Performance-Schema"><a href="#Performance-Schema" class="headerlink" title="Performance Schema"></a>Performance Schema</h2><p>高负载下调优数据库性能是一个迭代循环的过程，<strong>每次进行更改以调优数据库的性能时，都需要了解是否有什么影响。</strong></p>
+<p>Performance Schema数据库提供了有关Mysql服务器内部运行的操作上的底层指标。</p>
+<p>工作机制：</p>
+<ul>
+<li><p>程序插桩：在mysql代码中插入探测代码，以获取我们想了解的信息。</p>
+</li>
+<li><p>消费者表：存储关于程序插桩代码的信息。</p>
+</li>
+</ul>
+<p><strong>启用插桩会调用额外的代码，意味着插桩会消耗CPU资源。</strong></p>
+<p>performance Schema收集的数据保存在内存中，可以设置消费者表的大小来限制其使用的内存量。</p>
+<p>理解线程</p>
+<p>    mysql服务器是多线程软件，每个组件都使用线程。线程包含两个标识符: 操作系统的线程ID，mysql内部线程ID。</p>
+<p>每个前台线程都有一个指定的PROCESSLIST ID:连接标识符。performance_shcema中的threds中包含了服务器中存在的所有线程。</p>
+<p>元数据锁用于保存数据库对象定义不被修改。<strong>执行任何SQL语句都需要获取共享元数据锁</strong>。共享元数据锁会阻止哪些更改数据库对象定义的语句。<strong>事务执行期间会一直持有元数据锁</strong>。</p>
+<h2 id="操作系统和硬件优化"><a href="#操作系统和硬件优化" class="headerlink" title="操作系统和硬件优化"></a>操作系统和硬件优化</h2><p>mysql服务器的性能受限于整个系统最薄弱的环节，而承载它的操作系统和硬件往往是限制元素。</p>
+<blockquote>
+<p> 每个查询将只使用一个CPU。</p>
+</blockquote>
+<p>平衡内存和磁盘资源</p>
+<blockquote>
+<p>写入放大，用来描述由于部分块写而导致的数据从一处移到另一，多次写入数据和元数据所产生的额外写操作。</p>
+</blockquote>
+<h2 id="优化服务器配置"><a href="#优化服务器配置" class="headerlink" title="优化服务器配置"></a>优化服务器配置</h2><blockquote>
+<p>根据工作负载、数据和应用程序需求来配置服务器，而不仅仅是根据硬件来配置。</p>
+</blockquote>
+<p>查看服务器读取的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">which mysqld</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/usr/sbin/mysqld --verbose --help | grep -A 1 &#x27;Default options&#x27;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果在服务器运行时设置配置变量的全局值，则当前会话和其它现有会话将不受应i想。 在开始更改配置之前，应该优化查询和schema，解决一些显而易见的问题。</p>
+</blockquote>
+<p>最小化配置：</p>
+<ul>
+<li><p>innodb_log_size：设置innodb日志文件大小。innodb日志文件用于记录事务操作的详细信息，包括修改的数据、数据的开始和结束时间、事务的提交和回滚等。</p>
+</li>
+<li><p>innodb_file_per_table:innodb存储引擎一个参数，用于控制InnoDB表的存储方式。设置为on时，每个InnoDB表都会独立使用一个表空间文件来存储数据和索引。</p>
+</li>
+<li><p>innodb_flush_method：控制innoDB缓存中的数据在刷新到磁盘时使用文件系统或设备的刷新方法。</p>
+<ul>
+<li><p>O_DSYNC：同步写入的磁盘刷新数据到磁盘，等待磁盘响应后才返回。</p>
+</li>
+<li><p>O_DIRECT:直接I&#x2F;O方式刷新数据到磁盘。</p>
+</li>
+<li><p>fsync：使用标准的文件系统缓存和同步写入的方式刷新数据到磁盘，等待文件系统响应后才返回。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>每个连接的内存需求</p>
+<p>    mysql只需要少量的内存就能保持一个连接。</p>
+<h3 id="InnoDB缓冲池"><a href="#InnoDB缓冲池" class="headerlink" title="InnoDB缓冲池"></a>InnoDB缓冲池</h3><p>    innoDB缓存池需要的内存比其他任何组件都多。innodb缓冲池不仅缓存索引，还缓存行数据、自适应哈希索引、更改缓冲区、锁和其他内部结构等。innoDB还使用缓存池来实现延迟写操作，将多个写操作合并在一起并按顺序执行。</p>
+<h3 id="线程缓存"><a href="#线程缓存" class="headerlink" title="线程缓存"></a>线程缓存</h3><p>    线程缓存保存了当前没有与连接关联但已准备好为新连接提供服务的线程。</p>
+<h3 id="Mysql的I-O行为"><a href="#Mysql的I-O行为" class="headerlink" title="Mysql的I&#x2F;O行为"></a>Mysql的I&#x2F;O行为</h3><p>InnoDB事务日志：</p>
+<p>    使用日志来降低提交事务的成本。不会在每个事务提交时将缓冲池刷新到磁盘，而是记录到日志中，使用日志，可以将随机I&#x2F;O转换为顺序I&#x2F;O。一旦日志被安全地保存在磁盘中，辑视更改地数据尚未写入数据文件，事务仍是持久的，InnoDB可以重放日志并恢复已提交地事务，</p>
+<p>日志缓冲区</p>
+<p>    InnoDB修改数据时会将修改记录写入日志缓冲区，并将其保存在内存中。缓冲区满了、事务提交时、每秒一次（三种以满足以先满足为准），会将缓冲区刷新到磁盘的日志文件中。</p>
+<p>    不需要将缓冲区设置得很大，建议范围时1-8mb。</p>
+<p>InnoDB如何刷新日志缓冲区</p>
+<p>    当InnoDB将日志缓冲区刷新到磁盘上的日志文件时，会使用<strong>互斥锁锁定缓冲区</strong>，将其刷新到所需的位置，然后将剩余的条目移动到缓冲区的前面。当释放互斥锁时，可能会有多个事务准备刷新其日志条目。<strong>InnoDB使用了一个组提交特性，可以在单个&#x2F;O操作中将一组日志全部提交</strong> <code>innodb_flush_log_at_trx_commit</code>控制日志缓冲区的刷新位置和刷新频率。</p>
+<ul>
+<li><p>0：每秒定义将日志缓冲区写入到日志文件，并刷新日志文件。</p>
+</li>
+<li><p>1：每次事务提交时。将日志缓冲区写入日志文件，并将其刷新到持久存储中。</p>
+</li>
+<li><p>2：每次事务提交时都将日志缓冲区写入日志文件中，但不执行刷新。</p>
+</li>
+</ul>
+<blockquote>
+<p>高性能事务需求的最佳配置是将innodb_flush_log_at_trx_commit设置为1，并将日志文件放在具有备用电池的写缓存和SSD的RAID卷上。</p>
+</blockquote>
+<h3 id="mysql常见日志"><a href="#mysql常见日志" class="headerlink" title="mysql常见日志"></a>mysql常见日志</h3><ul>
+<li><p>二进制日志（binary log）：记录所有修改操作。二进制日志是实时写入磁盘的，每个事务提交时都会被写入二进制文件中。</p>
+</li>
+<li><p>事务日志(Transaction Log、redo log) :用于恢复在系统崩溃前未来得及持久化到磁盘的事务操作。事务日志是实时写入磁盘的，每个事务的操作都会被先被写入事务日志中，然后根据需要将数据写入到磁盘中。</p>
+</li>
+<li><p>慢查询日志：记录执行时间超过指定阈值的查询语句。定期写入磁盘。</p>
+</li>
+<li><p>undo log：<strong>逻辑日志，用于记录事务对数据的修改操作</strong>。在事务执行时，innoDB会先将事务的修改操作记录到undo log中，当事务回滚时，innoDB会根据undo log中的记录撤销事务的修改操作。(undo日志通过在内存中维护circular buffer来实现，当undo 日志空间被使用完时，innoDB会将部分undo日志写入磁盘中，以释放内存空间这个过程”purge”，会将已经提交的事务的undo 日志写入磁盘。)</p>
+</li>
+</ul>
+<h3 id="InnoDB表空间"><a href="#InnoDB表空间" class="headerlink" title="InnoDB表空间"></a>InnoDB表空间</h3><p>    InnoDB将数据保存在表空间中，表空间本质是虚拟文件系统，由磁盘上的一个或文件组成。表空间用于多种用途，不仅仅是存储表和索引。表空间还包含undo日志（重新创建旧行把呢不能所需的信息）、修改缓冲区、双写缓冲区和其他内部结构。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">innodb_data_home_dir <span class="operator">=</span> <span class="operator">/</span>var<span class="operator">/</span>log<span class="operator">/</span>mysql<span class="operator">/</span> #配置表空间文件目录</span><br><span class="line">innodb_data_file_path <span class="operator">=</span> ibdata1:<span class="number">1</span>G;ibdata2:<span class="number">1</span>G;ibdata3:<span class="number">1</span>G #配置表空间文件</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 回收表空间的唯一方法是将数据导出，然后关闭mysql并删除所有文件，再修改配置，重启，让innoDB创建新的空文件，最后再恢复数据。</p>
+</blockquote>
+<p>innodb_file_per_table选项允许你将InnoDB配置为每一个表使用单独的文件。可以使得删除表时更容易回收空间。</p>
+<h3 id="其他I-O配置选项"><a href="#其他I-O配置选项" class="headerlink" title="其他I&#x2F;O配置选项"></a>其他I&#x2F;O配置选项</h3><p>      sync_binlog选项控制Mysql如何将二进制日志刷新到磁盘，默认为1，意味着mysql将执行刷新并保持二进制日志的持久化和安全性。</p>
+<h3 id="Mysql并发"><a href="#Mysql并发" class="headerlink" title="Mysql并发"></a>Mysql并发</h3><p>     如果你发现遇到并发瓶颈，最好的选择是对数据进行分片。如果分片不行，可能需要限制并发性。限制并发性的最基本方法是使用<strong>innodb_thread_concurrency</strong>变量，该变量限制了内核中同时可以有多少线程。</p>
+<blockquote>
+<p>InnoDB使用一个两阶段的过程来尝试让线程尽可能高效的进入内核。两阶段策略减少了操作系统调度器导致的上下文切换开销，线程受限休眠innodb_thread_sleep_delay指定的微秒数，然后再重试。如果仍然不能进入，它将进入一个等待线程队列，将控制权交给操作系统。</p>
+</blockquote>
+<p>除了缓冲池和其他结构中的瓶颈之外，在提交阶段还有一个并发瓶颈，主要是由于刷新操作造成的I&#x2F;O限制。innodb_commit_concurrency变量控制着可以同时提交的线程数。</p>
+<h3 id="高级InnoDB设置"><a href="#高级InnoDB设置" class="headerlink" title="高级InnoDB设置"></a>高级InnoDB设置</h3><p>常见的设置：</p>
+<ul>
+<li><p>innodb_autoinc_lock_mode:控制innodb如何生成自动递增的主键值，高并发插入时，这可能会成为一个瓶颈，很多事务在等待<strong>自动增量锁</strong>。</p>
+</li>
+<li><p>innodb_read_io_threads和innodb_write_io_threads：有多少后台线程可用于I&#x2F;O操作。</p>
+</li>
+</ul>
+<h2 id="schema的管理和设计"><a href="#schema的管理和设计" class="headerlink" title="schema的管理和设计"></a>schema的管理和设计</h2><p>     良好的逻辑设计和物理设计是高性能的基石，应该根据系统将要运行特定的查询设计schema.   </p>
+<p>选择优化的数据类型的几个原则：</p>
+<ul>
+<li><p>更小的通常更好：占用磁盘、内存和cpu缓存的空间更少，同时处理时需要cpu周期也更少，通常会更快。</p>
+</li>
+<li><p>   简单为好：简单数据类型的操作需要更少的cpu周期。（日志存储为mysql内置类型而不是字符串，使用整型数据存储IP）。</p>
+</li>
+<li><p>尽量避免存储NUll：如果查询包含可为NULL的列，mysql更难优化，可为NULL的列使得索引、索引通记和值都更复杂。</p>
+</li>
+</ul>
+<p>选择具体类型的注意点：</p>
+<ul>
+<li><p>mysql数据类型可以存储相同类型的数据，但在存储的值范围、表示的精度或者需要的物理空间（磁盘和内存）存在差异。</p>
+<ul>
+<li><p>DATETIME和TIMESAMP可以存储相同类型的数据：时间和日期，精确秒。timestamp只使用DATETIME一半的存储空间，还会根据时区变化，而且具备特殊的自动更新能力。</p>
+<ul>
+<li><p>timestamp的取值范围:”1970-01-01 00:00:01 UTC “至”2038-01-19 03:14:07 UTC”之间时间戳。超出这个范围的值将被截断或转换为NULL。 </p>
+</li>
+<li><p>TIMESTAMP的自动更新：在 MySQL 中可以使用 DEFAULT CURRENT_TIMESTAMP 和 ON UPDATE CURRENT_TIMESTAMP 选项来自动更新 TIMESTAMP 类型的字段。DEFAULT CURRENT_TIMESTAMP 选项可以指定在插入数据时自动使用当前时间戳填充该字段，而 ON UPDATE CURRENT_TIMESTAMP 则可以在更新数据时自动更新该字段的值</p>
+</li>
+<li><p>TIMESTAMP的时区：默认使用服务器的时区进行存储和转换。</p>
+</li>
+<li><p>timestamp的精度：默认为秒，可以通过指定小数位来增加精度。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>整数类型：</p>
+<ul>
+<li><p>TINYINT：8</p>
+</li>
+<li><p>SMALLINT：16</p>
+</li>
+<li><p>MEDIUMINT：24</p>
+</li>
+<li><p>INT：32</p>
+</li>
+<li><p>BIGINT：64</p>
+</li>
+</ul>
+<p>小数类型：</p>
+<ul>
+<li>由于额外的空间需求和计算成本，应该尽量只对小数进行精确计算时才使用DECIMAL。</li>
+</ul>
+<p>字符串类型：</p>
+<ul>
+<li><p>varchar：存储可变长度的字符串，它比固定长度的类型更节省空间。<strong>需要额外使用1或2字节记录字符串的长度。</strong> 但是由于行是可变的，在更新时可能会增长，这会导致额外的工作。如果行的增长使得原位置无法容纳更多内容，则处理行为取决于所使用存储引擎。</p>
+<ul>
+<li>适用场景：字符串列的最大长度远大于平均长度、列的更新很少（不用考虑碎片问题）、使用了像UTF-8复杂字符集。</li>
+</ul>
+</li>
+<li><p>CHAR：长度固定。存储CHAR值时，<strong>mysql删除所有尾随空格</strong>，如果需要比较，值使用空格填充。</p>
+<ul>
+<li>适用场景：存储非常短的字符串、所有值的长度都几乎相同的情况。对于经常修改的数据（固定长度的行不容易产生碎片）。</li>
+</ul>
+</li>
+<li><p>BINARY和VARBINARY：二进制字符串，存储的是字节而不是字符。填充BINANRY使用\0，不会在检索时去除填充值。字节比较的优势：大小写不敏感。</p>
+</li>
+</ul>
+<p>varchar(5)和varchar(200)存储”hello”空间开销一致，使用更短的列的优势：</p>
+<ul>
+<li><p>索引效率：使用更短的列可以减少索引的存储空间和检索时间，从而提高索引的效率。</p>
+</li>
+<li><p>数据完整性：强制限制输入的数据长度。强约束性。</p>
+</li>
+<li><p>内存使用：虽然varchar列的空间开销根据实际存储的字符串长度，但在某些情况下，mysql可能需要为查询分配一定的内存空间。</p>
+</li>
+</ul>
+<p>BLOB和TEXT类型：</p>
+<ul>
+<li><p>存储很大的数据而设计的字符串类型，分别采用二进制和字符串存储。</p>
+</li>
+<li><p>当BLOB和TEXT值太大时，InnoDB会使用独立的外部存储区域，此时每个值在行内1-4字节的存储空间，然后在外部存储区域需要足够来存储实际的值。</p>
+</li>
+</ul>
+<p>位压缩数据类型</p>
+<p>     使用值中的单个位来紧凑存储数据的类型。所有这些位压缩类型，底层存储和处理方式，都是字符串类型。</p>
+<p>选择标识符</p>
+<p>    标识符是引用行及通常使其唯一的方式。为标识符列选择合适的数据类型非常重要。<strong>标识符列也可能在其他表中作为外键，因此为标识符列选择数据类型时，应该与联接表中的对应列保持一致。类型应该完全匹配，包括UNSIGNED等属性。</strong></p>
+<p>    推荐使用整数类型，需要考虑选择合适的整数大小。避免使用字符串类型作为标识符，很消耗空间。</p>
+<p>    标识符对于完全随机的字符串要小心，这会减慢insert和某些select查询</p>
+<ul>
+<li><p>插入会写到索引的随机位置，使insert变慢。这会导致页分裂、磁盘随机访问、以及聚簇索引存储引擎产生聚簇索引碎片。</p>
+</li>
+<li><p>select查询也会变慢，因为逻辑上相邻的行会广泛分布在磁盘和内存中。</p>
+</li>
+<li><p>对于所有类型的查询，<strong>随机值都会导致缓存的性能低下，因为它们会破坏引用的局部性，而这正是缓存的工作原理</strong></p>
+</li>
+</ul>
+<p>Mysql Schema设计中的陷阱</p>
+<ul>
+<li><p>太多的列：MySQL的存储引擎API通过在服务器和存储引擎之间以<strong>行缓冲区格式复制行来工作</strong>；然后，服务器将缓冲区解码为列。将行缓冲区转换为具有解码列的行数据结构操作代价非常高。转换成本取决于列数。</p>
+</li>
+<li><p>太多的联结：如果需要以高并发性快速执行查询，那么每个查询最好少于十几个的表。</p>
+</li>
+<li><p>NULL不是虚拟值：在特定情况下可以使用NULL，mysql也会对NULL值进行索引。</p>
+</li>
+</ul>
+<h2 id="创建高性能的索引"><a href="#创建高性能的索引" class="headerlink" title="创建高性能的索引"></a>创建高性能的索引</h2><p>    <strong>索引优化应该是对查询性能优化最有效的手段</strong>。索引可以包含多列，那么列的顺序也十分重要，因为mysql只能有效地使用索引地最左前缀列。</p>
+<h3 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h3><p>    <strong>mysql中索引是在存储引擎层而不是服务器层实现的。</strong></p>
+<ul>
+<li><p>B-tree索引：每个叶子节点都包含指向下一个叶子节点的指针，从而方便遍历叶子节点范围。<strong>B-tree通常意味着所有值都是按顺序存储的，并且每一个叶子到根的距离相同。</strong> B-tree索引能够加快数据访问的速度，在查询某些条件的数据时，存储引擎<strong>不再需要进行全表扫描</strong>。B-tree是按照索引列中的数据大小顺序存储的，所以很适合按照范围来查询</p>
+</li>
+<li><p>自适应哈希：InnoDB存储引擎<strong>发现某些索引的值被非常频繁的访问时，它会在原有的B-tree索引之上，在内存中再构建一个哈希索引。</strong> 这让B-tree索引也具备了一些哈希索引的优势。</p>
+</li>
+<li><p>B-tree索引的查询类型，B-tree适用于全键值、键值范围或键前缀查找。对如下有效：</p>
+<ul>
+<li><p>全值查询：指和索引中的所有列匹配。</p>
+</li>
+<li><p>匹配最左前缀：使用索引的前几列。</p>
+</li>
+<li><p>匹配列前缀：也可以只匹配某一列的值的开头部分。</p>
+</li>
+<li><p>匹配范围值</p>
+</li>
+<li><p>精确匹配某一列而范围匹配另外一列</p>
+</li>
+<li><p>只访问索引的查询：</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>B-tree索引的限制：</p>
+<ul>
+<li><p>不是按照索引的最左列开始查找，则无法使用索引。</p>
+</li>
+<li><p>不能跳过索引中的列。</p>
+</li>
+<li><p>如果查询中有某列的范围查询，则其右边所有列都无法使用索引优化查找。</p>
+</li>
+</ul>
+<p>全文索引</p>
+<p>    FULLTEXT是一种特殊类型的索引，<strong>它查找的是文本中的关键词</strong>，而不是直接比较索引中的值。<strong>在相同的列上同时创建全文索引和基于值的B-tree索引并不会有冲突，全文索引适用于MATCH AGAINST操作</strong></p>
+<p>适用索引的优点：</p>
+<ul>
+<li><p>大大减少服务器需要扫描的数据量。</p>
+</li>
+<li><p>索引可以帮助服务器避免排序和临时表（数据有序）</p>
+</li>
+<li><p>索引将随机I&#x2F;O变为顺序I&#x2F;O。</p>
+</li>
+</ul>
+<h3 id="高性能的索引策略"><a href="#高性能的索引策略" class="headerlink" title="高性能的索引策略"></a>高性能的索引策略</h3><ul>
+<li><p>前缀索引和索引的选择性：有时候为了提升索引的性能，同时也节省索引空间，可以只对数据的前一段字符进行索引，但是会降低索引的选择性。</p>
+<ul>
+<li><p>索引的选择性是指：不重复的索引和数据表的记录总数的比值。<strong>选择性越高则查询效率越高</strong>。选择性高的索引可以让Mysql在查找时过滤掉更多的行。</p>
+</li>
+<li><p>前缀索引是一种能使索引更小、更快的有效方法。缺点mysql无法使用前缀索引做order by和group by操作，也无法使用前缀索引做覆盖扫描。</p>
+</li>
+</ul>
+</li>
+<li><p>多列索引：</p>
+<ul>
+<li><p>mysql存在一种技术，<strong>索引合并策略</strong>，在一定程度上可以使用表中的多个单列索引来定位指定的行。</p>
+</li>
+<li><p>当优化器需要对多个索引做联合操作时，通常<strong>需要在算法的缓存、排序和合并操作上耗费大量CPU和内存资源</strong>。尤其是当其中有些索引的选择性不高，需要合并扫描返回的大量数据的时候。</p>
+</li>
+<li><p>优化器不会把这些操作计算到查询成本中。使得查询成本被低估。</p>
+</li>
+</ul>
+</li>
+<li><p>选择合适的索引列顺序</p>
+<ul>
+<li><p><strong>正确的顺序依赖于该索引的查询语句,同时，还需要考虑如何更好地满足排序和分组操作的需要。</strong></p>
+</li>
+<li><p>不需要考虑排序和分组的情况下，将选择性高的列放在索引的最前列。同时<strong>考虑如何避免大量随机I&#x2F;O和排序可能更重要。</strong></p>
+</li>
+<li><p>实际建立索引需要考虑每个列的选择性，同时也要考虑 特殊值、极端情况。</p>
+</li>
+</ul>
+</li>
+<li><p>聚簇索引:</p>
+<ul>
+<li><p>一种数据存储方式。innoDB聚簇索引是在同一个结构中保存B-tree索引和数据行。当表有聚簇索引时，<strong>它的数据行实际上存放在索引的叶子页(leaf page)中</strong></p>
+</li>
+<li><p>如果你没有定义主键，InnoDB会选择一个唯一的非空索引代替。如果没有这样的索引，InnoDB会隐式定义一个主键来作为聚簇索引。缺点所有这种隐式主键的表都依赖一个单点的“自增值”，会导致非常高的锁竞争。</p>
+</li>
+<li><p>聚簇索引的优点：</p>
+<ul>
+<li><p>相互关联的数据保存在一起。（例如，在实现电子邮箱应用时，可以根据用户ID来聚集数据，这样只需要从磁盘读取少数的数据页就能获取某个用户的全部邮件。如果没有使用聚簇索引，则每封邮件都可能导致一次磁盘I&#x2F;O。）</p>
+</li>
+<li><p>数据访问更快。聚簇索引将索引和数据保存在同一个B-tree中，因此从聚簇索引中获取数据通常比在非聚簇索引中查找要快。</p>
+</li>
+<li><p>使用覆盖索引扫描的查询可以直接使用页节点中的主键值。</p>
+</li>
+</ul>
+</li>
+<li><p>聚簇索引的缺点：</p>
+<ul>
+<li><p>不适用数据全部放在内存中的存储引擎。</p>
+</li>
+<li><p>插入速度严重依赖于插入顺序。</p>
+</li>
+<li><p>更新聚簇索引列的代价很高，因为会强制InnoDB将每个被更新的行移动到新的位置。</p>
+</li>
+<li><p>基于聚簇索引的表在插入新行或主键被更新导致移动行，可能面临页分裂的问题。页分裂会导致表占用更多的磁盘空间。</p>
+</li>
+<li><p>可能会导致全表扫描变慢，尤其是行比较稀疏，或者由于页分裂导致数据存储不连续的时候。</p>
+</li>
+<li><p>二级索引会存储引用行的主键列。二级索引空间变大</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>InnoDB的二级索引叶子存储主键值，并以此为指向行的指针。这种策略减少了当出现行移动或者数据页分裂时二级索引的维护工作。innoDB在移动行时无需更新二级索引的指针。</p>
+</blockquote>
+<blockquote>
+<p>“OPTIMIZE TABLE” 命令是用于优化 MySQL 数据库中表的命令。<strong>它可以清理表中的空间碎片，释放未使用的空间，还可以为表重建索引</strong>，从而提高表的性能和查询速度。执行 “OPTIMIZE TABLE” 命令时，表会被锁定，因此在表很大的情况下可能会导致一段时间的停机</p>
+</blockquote>
+<p>什么时候按照主键顺序插入反而会更糟?</p>
+</li>
+<li><p>高并发工作负载下，按主键顺序插入可能会造成明显的写入竞争，并发插入可能导致间隙锁的竞争。</p>
+</li>
+<li><p>另一个热点可能是AUTO_INCREMENT锁机制。</p>
+</li>
+</ul>
+<p>负载索引：</p>
+<ul>
+<li>只有B-tree索引可以用于覆盖索引。减少回表操作。</li>
+</ul>
+<p>使用索引扫描来做排序：</p>
+<ul>
+<li><p>mysql生成有序结果的两种方式：通过排序操作、按照索引顺序扫描。</p>
+</li>
+<li><p>只有当索引的顺序和ORDER BY子句的顺序完全一致，并且所有列的排序方向（倒序或正序）都一样时，MySQL才能使用索引来对结果做排序。特殊情况，如果前导列为常数，可以不满足最左前缀的要求。</p>
+</li>
+<li><p>不会使用索引排序：order by引用了不再索引中的列、前导列为范围查询且order by没有进行指定、</p>
+</li>
+</ul>
+<p>冗余和重复索引：</p>
+<ul>
+<li><p>重复索引是指<strong>在相同的列上按照相同顺序创建的相同类型的索引。</strong></p>
+</li>
+<li><p>MySQL<strong>需要单独维护重复的索引</strong>，优化器在优化查询的时候也需要逐个地进行评估，这会影响性能，同时也浪费磁盘空间。</p>
+</li>
+<li><p>一般来说，增加新索引会导致INSERT、UPDATE、DELETE等操作的速度变慢，<strong>特别是当新增索引后达到了内存瓶颈的时候</strong>。</p>
+</li>
+</ul>
+<p>维护索引和表：</p>
+<p>        维护表有三个主要目的：找到并修复损坏的表，维护准确的索引统计信息，减少碎片。</p>
+<ul>
+<li>如果存储引擎向优化器提供的扫描行数信息不准确，或者执行计划本身太复杂以致无法准确地获取各个阶段匹配的行数，那么优化器会使用索引统计信息来估算扫描行数。而衡量成本的主要指标就是一个查询需要扫描多少行。如果表没有统计信息，或者统计信息不准确，优化器就很有可能做出错误的决定。可以通过运行<strong>ANALYZE TABLE</strong>来重新生成统计信息，以解决这个问题。</li>
+</ul>
+<p>减少索引和数据的碎片：</p>
+<ul>
+<li><p>B-tree索引可能会产生碎片化，降低查询的效率。</p>
+</li>
+<li><p>三种类型的数据碎片:</p>
+<ul>
+<li><p>行碎片：这种碎片指的是数据行被存储在多个地方的多个片段中</p>
+</li>
+<li><p>行间碎片：行间碎片是指逻辑上顺序的页或者行，在磁盘上不是顺序存储的。影响全表扫描和聚簇索引扫描之类的。</p>
+</li>
+<li><p>剩余空间碎片：指数据页中有大量的空余空间</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="查询性能优化"><a href="#查询性能优化" class="headerlink" title="查询性能优化"></a>查询性能优化</h2><p>        查询也需要合理的设计，否则库表结构再合理，索引再合适，也无法实现高性能。</p>
+<blockquote>
+<p>如果把查询看作一个任务，那么它由一系列子任务组成，每个子任务都会消耗一定的时间。如果要优化查询，实际上要优化其子任务，要么消除其中一些子任务，要么减少子任务的执行次数。</p>
+</blockquote>
+<p>优化数据访问</p>
+<p>    大部分性能低下的查询都可以通过减少访问的数据量进行优化。低效查询分析步骤：</p>
+<ul>
+<li><p>确认应用程序是否检索大量且不必要的数据。</p>
+</li>
+<li><p>确认mysql服务器层是否再分析大量不需要的数据行。</p>
+</li>
+</ul>
+<p>一些典型不好的案例：</p>
+<ul>
+<li><p>查询不需要的记录。（使用limit来限制）</p>
+</li>
+<li><p>多表联接时返回全部列（只取需要的列），会带来额外的I&#x2F;O、内存和cpu消耗。</p>
+</li>
+<li><p>重复查询相同的数据</p>
+</li>
+</ul>
+<p>mysql是否在扫描额外的记录：</p>
+<p>       衡量查询开销指标：响应时间、扫描的行数、返回的行数。</p>
+<p>        这三个指标都会被记录到mysql的慢日志中。</p>
+<p>  响应时间：</p>
+<ul>
+<li>由服务时间和排队时间组成。</li>
+</ul>
+<p>扫描行数和返回的行数：</p>
+<ul>
+<li><p>查看扫描的行数很大程度能够说明该查询找到需要的数据效率高不高。</p>
+</li>
+<li><p>mysql能够使用如下三种方式应用where条件，性能从好到坏</p>
+<ul>
+<li><p>在索引中使用where条件来过滤不匹配的记录，存储引擎中完成。</p>
+</li>
+<li><p>使用索引覆盖来返回记录，然后从索引中过滤不需要的记录并返回命中的结果。mysql服务器层实现。</p>
+</li>
+<li><p>从数据表中返回数据，然后过滤不满条件的记录。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>重构查询的方式：</p>
+<p>    在优化有问题的查询时，目标是应该是找到获得实际需要的结果的替代方法，并意味着从mysql返回相同的结果集。</p>
+<ul>
+<li><p>一个复杂查询还是多个简单查询。</p>
+</li>
+<li><p>切分查询</p>
+</li>
+<li><p>分解联接查询</p>
+<ul>
+<li><p>让缓存的效率更高</p>
+</li>
+<li><p>执行单个查询可以减少锁的竞争</p>
+</li>
+<li><p>在应用层做联接，可以更容易对数据库进行拆分，更容易做到高性能和可拓展。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>查询执行的基础：</p>
+<p>    当用mysql发送一个请求时，mysql做了写什么：</p>
+<ul>
+<li><p>客户端给服务器发送一条sql查询语句。</p>
+</li>
+<li><p>服务其端进行sql解析、预处理、在由优化器生成对应的执行计划。</p>
+</li>
+<li><p>mysql根据优化器生成的执行计划，调用存储引擎API来执行查询。</p>
+</li>
+<li><p>将结果返回给客户端。</p>
+</li>
+</ul>
+<p><code>show status like &#39;last_query_cost&#39;</code>可以得操mysql计算当前查询的成本。</p>
+<p>mysql的查询优化策略：</p>
+<ul>
+<li><p>静态优化：直接对解析树进行分析，并进行优化。（第一次完成之后就一直有效）</p>
+</li>
+<li><p>动态优化：和查询上下文有关。每次查询都需要重新评估。</p>
+</li>
+</ul>
+<p>mysql能处理的优化类型：</p>
+<ul>
+<li><p>重新定义联接表的顺序。</p>
+</li>
+<li><p>将外连接转换为内连接</p>
+</li>
+<li><p>代数等价变换规则</p>
+</li>
+<li><p>优化count、min和max</p>
+</li>
+<li><p>列表in的比较，mysql将in列表中的数据先排序然后通过二分查找确定列表中的值是否满足条件。</p>
+</li>
+</ul>
+<p>优化联接查询：</p>
+<ul>
+<li><p>确保on或者using字句中的列有索引。创建索引需要考虑联接的顺序。只需要在联接表的第二个表相应列创建索引。</p>
+</li>
+<li><p>确保任何group by和order by表达式只设计一个表中的字段。这样才能使用到索引。</p>
+</li>
+</ul>
+<p>优化limit和offset</p>
+<p>    最好可以使用到相应索引。<strong>深度分页优化的最简单方法就是尽可能地使用索引覆盖查询，而不是查询所有行，</strong></p>
+<p>优化SQL CALC FOUND ROWS</p>
+<p>    mysql只有子啊扫描所有满足地行数之后，才会知道行数。使用count(*)如果可以利用覆盖索引性能还是不错的。</p>
+<h2 id="表分区"><a href="#表分区" class="headerlink" title="表分区"></a>表分区</h2><blockquote>
+<p>Innodb8.0中innodb、NDB存储引擎支持表分区。innodb8.0之后默认支持表分区。8.0只支持水平分区不支持垂直分区。相同分区表的不同分区必须使用相同的存储引擎。</p>
+</blockquote>
+<blockquote>
+<p>分区可以使一个表的不同分区存储在不同位置.用户选择的用于完成数据划分的规则被称为分区函数，在MySQL中，它可以是模数、针对一组范围或值列表的简单匹配、内部哈希函数或线性哈希函数。</p>
+</blockquote>
+<blockquote>
+<p>在RANGE、LIST和 HASH分区的情况下，分区列的值被传递给分区函数，该函数返回一个整数值，表示应该存储该特定记录的分区的编号.此函数必须是非恒定和非随机的，可以不执行任何查询，但必须返回null或者intval。</p>
+</blockquote>
+<h1 id="Mysql45讲"><a href="#Mysql45讲" class="headerlink" title="Mysql45讲"></a>Mysql45讲</h1><blockquote>
+<p>连接mysql，如果用户名、密码认证通过之后，连接器会从权限表里面查询出你拥有的权限，之后这个连接里面的权限判断都依赖此时读到的权限。这意味着一个用户建立连接之后，即使后来对这个用户的权限进行了修改，也不影响已经存在的连接。</p>
+</blockquote>
+<blockquote>
+<p>客户端如果太久时间没有动静，连接器会自动讲它断开，这个时间由参数wait_timeout决定。</p>
+</blockquote>
+<blockquote>
+<p>mysql在执行过程中临时使用的内存是管理在连接对象中的，这些资源会在连接断开的时候才释放。可以采取两种方案：定时断开长连接、mysql5.7可以执行mysql_reset_connection来重新初始化连接。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://gitee.com/yangxiao2000/md_img/raw/master/images/20230828223647.png" alt="$"></p>
+<p>查询缓存：</p>
+<blockquote>
+<p>只要对一个表进行更新，这个表的所有查询缓存都会被清空。</p>
+</blockquote>
+<p>分析器：</p>
+<blockquote>
+<p>分析器先会做词法分析、语法分析，根据词法分析的结果，语法分析器会根据语法规则，判断你输入的这个SQL语法是否满足Mysql语法。</p>
+</blockquote>
+<p>优化器：</p>
+<blockquote>
+<p>确定执行方案。经过了分析器，mysql就知道你要做什么，在开始执行之前，要经过优化器的处理。优化器是在表里面有多个索引的时候，决定使用哪个索引；或者在一个语句中有多表关联的时候，决定各个表的连接顺序。</p>
+</blockquote>
+<p>执行器：</p>
+<blockquote>
+<p>开始执行的时候，要先判断一下你对这个表有没有执行查询的权限。</p>
+</blockquote>
+<h2 id="redo-log"><a href="#redo-log" class="headerlink" title="redo log"></a>redo log</h2><blockquote>
+<p>mysql的更新数据操作使用了WAL技术，先写日志、再写磁盘。当一条记录需要更新时，innodb会先把记录写入到redo log，并更新内存。innodb引擎在适当的时候，会将这个记录更新到磁盘，一般在系统空闲的时候做。</p>
+</blockquote>
+<blockquote>
+<p>redo log大小是固定的，从开开始写，写到末尾又回到开头循环。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://gitee.com/yangxiao2000/md_img/raw/master/images/20230829012821.png" alt="$"></p>
+<ul>
+<li><p>write pos是当前记录的位置，check point是当前要擦除的位置。擦除记录前要把记录更新到数据文件。</p>
+</li>
+<li><p>write pos和check point之间是空着的部分，可以用来记录新的操作。如果write pos追上check point时，必须停下来擦除一些操作。</p>
+</li>
+</ul>
+<blockquote>
+<p>有了redo log，innodb可以保证即使数据库发生异常重启，之前提交的记录也不会丢失，这个能力称为crash-safe.<code>innodb_flush_log_at_trx_commit</code>设置为1，表示每次事务的redo log都持久化到磁盘。这样可以保证mysql异常重启之后数据不丢失，</p>
+</blockquote>
+<blockquote>
+<p>redo log buffer是一块内存，用来先存放redo日志，真正把日志写入到redo log文件，是在执行commit语句的时候。</p>
+</blockquote>
+<h2 id="binlog"><a href="#binlog" class="headerlink" title="binlog"></a>binlog</h2><blockquote>
+<p>redo log属于innodb特有日志，binlog数据server层日志。<code>sync_binlog</code>设置为1是，表示每次事务的binlog都持久化到磁盘，可以保证mysql异常重启之后binlog不丢失。</p>
+</blockquote>
+<p>binlog和redolog的区别：</p>
+<ul>
+<li><p>redo log innodb特有，binlog时mysql server层特有。</p>
+</li>
+<li><p>redo log 物理日志记录在某个数据页做了什么修改，binlog逻辑日志，记录这个语句的原始逻辑。</p>
+</li>
+<li><p>redo log循环写，固定空间会写完，binlog追加写。</p>
+</li>
+</ul>
+<blockquote>
+<p>msql如何知道binlog是完整的？</p>
+<p>statement格式的binlog,最后有commit。</p>
+<p>row格式的binlog，最后会有一个XID event。</p>
+</blockquote>
+<h2 id="两阶段提交"><a href="#两阶段提交" class="headerlink" title="两阶段提交"></a>两阶段提交</h2><blockquote>
+<p>redo log的写入被拆分成两个步骤：prepare和commit，被称为两阶段提交。在崩溃恢复阶段如果redo log的状态是prepare状态则需要考虑binlog中该事务是否提交。</p>
+</blockquote>
+<blockquote>
+<p>redolog和binlog是如何关联起来的？</p>
+<p>它们有一个共同的数据字段XID，崩溃的恢复的时候会按顺序扫描redo log。</p>
+</blockquote>
+<h2 id="事务隔离"><a href="#事务隔离" class="headerlink" title="事务隔离"></a>事务隔离</h2><blockquote>
+<p>Mysql的事务支持是在引擎层实现的。隔离级别越高，效率就会越低。</p>
+</blockquote>
+<blockquote>
+<p>不同隔离级别下，开启事务是已视图逻辑结果为准，在实现上，数据库会创建一个视图。在可重复读隔离级别下，这个视图是在事务启动时创建的，整个事务存在期间都使用这个视图。在读提交隔离级别下，这个视图是在每个SQL语句开始执行的时候创建的。读未提交隔离级别下直接返回记录上的最新值，没有视图概念。</p>
+</blockquote>
+<h3 id="视图隔离的实现"><a href="#视图隔离的实现" class="headerlink" title="视图隔离的实现"></a>视图隔离的实现</h3><p>    在Mysql中，实际上每次记录在更新的时候都会同时记录一条回滚操作。通过回滚操作，可以得到前一个状态的值。这就是数据库的MVCC。</p>
+<blockquote>
+<p>回滚日志会在系统判断，当没有事务再需要使用这些回滚日志时，会被删除。就是当系统里没有比这个回滚日志更早的read-view的时候。</p>
+</blockquote>
+<blockquote>
+<p>尽量不要使用长事务，长事务意味着系统里面会存在很老的事务视图，这些事务随时可能访问数据库里面任何的数据，所以再事务提交之前，可能用到的回滚记录都需要保留，占据大量存储空间。长事务还会占用锁资源。</p>
+</blockquote>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><blockquote>
+<p>索引的目的就是提高数据查询的效率。</p>
+</blockquote>
+<p>索引模型常见的数据结构:哈希表、有序数组、搜索树。</p>
+<p>哈希索引：</p>
+<ul>
+<li><p>优点:适用于等值查询</p>
+</li>
+<li><p>缺点：不适用范围查询</p>
+</li>
+</ul>
+<p>有序数组：</p>
+<ul>
+<li><p>适用于等值查询和范围查询。</p>
+</li>
+<li><p>插入记录成本较大，只适用于静态存储引擎。</p>
+</li>
+</ul>
+<blockquote>
+<p>索引不止在内存中，还要磁盘中。多叉树结构是为了让一个查询尽量少读磁盘，访问尽量少的数据块。</p>
+</blockquote>
+<blockquote>
+<p>基于主键索引查询，大多数时间可以减少回表查询。</p>
+</blockquote>
+<h3 id="索引维护"><a href="#索引维护" class="headerlink" title="索引维护"></a>索引维护</h3><p>B+树为了维护索引有序性，在插入新值的时候需要做必要的维护。当不是以追加方式插入时，会造成数据挪动，甚至页分裂。</p>
+<blockquote>
+<p>主键长度越小，普通索引的叶子节点就越小，普通索引占用的空间也越小。</p>
+</blockquote>
+<blockquote>
+<p>建立联合索引时需要考虑顺序已经空间。</p>
+</blockquote>
+<blockquote>
+<p>重建索引的过程会创建一个新的索引，把数据按顺序插入，这样页面的利用率最高，索引更紧凑、更省空间。</p>
+</blockquote>
+<blockquote>
+<p>mysql5.6之后支持索引下推，可以在索引遍历的过程种，对索引中包含的字段先做判断，直接过滤掉不满足条件的记录，减少回表次数。</p>
+</blockquote>
+<h2 id="全局锁和表锁"><a href="#全局锁和表锁" class="headerlink" title="全局锁和表锁"></a>全局锁和表锁</h2><blockquote>
+<p>根据加锁范围，mysql分为全局锁、表锁、行锁。</p>
+</blockquote>
+<p>  <code>Flush tables with read lock</code>，加上全局读锁，只能执行DQL操作。适用于全库逻辑备份阶段。适用<code>unlock tables</code>释放锁。</p>
+<blockquote>
+<p>官方自带的逻辑备份工具是mysqldump。当mysqldump使用参数–single-transaction的时候，导数据之前就会启动一个事务，来确保拿到一致性视图。而由于MVCC的支持，这个过程中数据是可以正常更新的。<strong>需要考虑存储引擎是否支持事务。</strong></p>
+</blockquote>
+<blockquote>
+<p>可以适用<code>set global read_only =true</code>让数据库只读状态，但这期间super权限用户仍然可以进行更新操作(set global super_read_only &#x3D;true可以禁止)、复制模式下仍可以执行、</p>
+</blockquote>
+<p>表级别锁分为：表锁、元数据锁。</p>
+<blockquote>
+<p>表锁的语法<code>lock tables ... read/write</code>。使用<code>unlock tables</code>释放锁。lock tables会限制别的线程的读写外，也限定了本线程接下来的操作对象。线程执行<code>lock tables t1 read,t2 write</code>，线程A也只能执行读写t2、读t1，不能访问其它表。</p>
+</blockquote>
+<blockquote>
+<p>MDL元数据锁，访问一个表的时候会被自动加上，mysql5.5加入。对一个表进行增删改查时加读锁、变更表结构加写锁。</p>
+</blockquote>
+<blockquote>
+<p>通常在一个事务中锁获得的锁会在事务提交或回滚时才释放。innoDb存储引擎，使用两阶段锁定协议，在这个协议中一个事务一旦获取锁，她可以继续获得更多的锁，但它不能释放任何锁，知道事务到达提交点并提交或回滚。</p>
+</blockquote>
+<blockquote>
+<p>如果长事务获取某个表元数据锁的读锁不释放，另外一个线程尝试变更表结构获取元数据所的写锁，会被阻塞，等待读锁释放，如果其它线程尝试去获取这个表的读锁也会被阻塞。（因为如果允许更多的读锁在写锁之前被获取，那么持有读锁的线程可能会无限期延迟写锁的获取，造成写锁饥饿）.可以在变更表结构之前尝试是否存在长事务、alter table设定等待时间。</p>
+</blockquote>
+<h2 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h2><blockquote>
+<p>不是所有存储引擎都支持行锁，行锁是由存储引擎实现的。</p>
+</blockquote>
+<blockquote>
+<p>在InnoDB事务中，行锁在是在需要的时候才加上，但并不是不需要就立即释放，而是等到事务结束时才释放，这就是两阶段锁协议。<code>如果你的事务需要锁定多行，要把最可能造成锁冲突的、最可能影响并发度的锁尽量往后放。</code></p>
+</blockquote>
+<h3 id="死锁和死锁检测"><a href="#死锁和死锁检测" class="headerlink" title="死锁和死锁检测"></a>死锁和死锁检测</h3><blockquote>
+<p>当并发系统中不同线程出现循环资源依赖、涉及的线程都在等待别的线程释放资源时，就会导致这几个线程都进入无限等待的状态，称为死锁。</p>
+</blockquote>
+<p>mysql出现死锁后，有两种策略：</p>
+<ul>
+<li><p>直接进入等待，直到超时，超时时间可以通过参数<code>innodb_lock_wait_timeout</code>来设置。</p>
+</li>
+<li><p>发起死锁检测，发现死锁后，主动回滚死锁链条中的某个事务，让其它事务得以继续执行，讲参数<code>innodb_deadlock_detect</code>设置为On，开启这个逻辑。</p>
+</li>
+</ul>
+<blockquote>
+<p>正常清空下一般使用方式二，主动死锁检测，但是会给系统造成额外负担。需要检测检测死锁，消耗大量cpu资源。</p>
+</blockquote>
+<p>热点行更新导致的性能问题的解决思路：</p>
+<ul>
+<li><p>确保业务一定不会出现死锁，可以临时把死锁检测关掉。</p>
+</li>
+<li><p>控制并发度。降低进入存储引擎的锁占用请求。同时可以考虑讲锁占用分散，比如一个账户分成10个账户，增加锁数量。</p>
+</li>
+</ul>
+<h2 id="事务是不是隔离的"><a href="#事务是不是隔离的" class="headerlink" title="事务是不是隔离的"></a>事务是不是隔离的</h2><blockquote>
+<p>begin&#x2F;start transaction并不是一个事务的起点，在执行到它们之后的第一个操作InnoDB表的语句，事务才真正启动。如果要马上启动一个事务，可以使用<code>start transaction with consistent snapshot</code>命令。</p>
+</blockquote>
+<p>  快照在mvcc中工作原理：</p>
+<blockquote>
+<p>在可重复度隔离级别下，事务在启动时常见快照，这个快照基于整库。每个事务有一个唯一事务ID，按申请顺序严格递增。修改数据会创建undo log，依据undo log会记录每个数据版本的事务id。</p>
+</blockquote>
+<blockquote>
+<p>更新数据都是先读后写，而这个读，只能读当前的值，称为当前读。select语句如果加锁，也是当前读。</p>
+</blockquote>
+<blockquote>
+<p>可重复度的核心是一致性读：而事务更新数据的时候，只能采用当前读。如果当前的锁记录的行锁被其它事务占用的话，就需要进入锁等待。</p>
+</blockquote>
+<ul>
+<li><p>对于可重复读，查询只承认在事务启动前就已经提交完成的数据。</p>
+</li>
+<li><p>对于读提交，查询只承认在语句启动前就已经提交完成的数据。</p>
+</li>
+</ul>
+<h2 id="普通索引和唯一索引"><a href="#普通索引和唯一索引" class="headerlink" title="普通索引和唯一索引"></a>普通索引和唯一索引</h2><blockquote>
+<p>存储引擎innoDB的数据是按页为单位读写的。每个数据页的大小默认是16KB。普通索引，查到这个满足条件第一个记录，需要查询下一个记录。唯一索引，查找到第一个满足条件的记录后，就会停止检索。</p>
+</blockquote>
+<h3 id="更新过程"><a href="#更新过程" class="headerlink" title="更新过程"></a>更新过程</h3><blockquote>
+<p>当需要更新一个数据页，如果数据页在内存就直接更新，而如果这个数据页还没有在内存的话， 在不影响数据一致性的前提下，innoDB会讲这些更新操作缓存在change buffer中，这样就不需要从磁盘中读入这个数据页。下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行change buffer中与这个页有关的操作。</p>
+</blockquote>
+<blockquote>
+<p>change buffer是可以持久化的数据，change buffer在内存中有拷贝，也会被写入到磁盘上。change buffer用的是buffer pool里的内存，可以通过<code>innodb_change_buffer_max_size</code>来动态设置，百分比设置。</p>
+<p>将change buffer的操作应用到数据页，得到的最终结果的过程称为merge，除了访问这个数据页会触发merge外，系统有后台线程会定期merge，在数据库正常关闭的过程中，也会执行merge操作。</p>
+</blockquote>
+<blockquote>
+<p>使用changebuffer的好处：更新操作首先记录到change buffer减少读磁盘。减少数据读入内存，减少buffer pool的使用。</p>
+</blockquote>
+<p>使用change buffer的条件：</p>
+<blockquote>
+<p>唯一索引，所有更新操作都要先判断这个操作是否违反唯一性约束，更新不能使用change buffer.只有普通索引可以使用。</p>
+</blockquote>
+<p>change buffer的使用场景：</p>
+<blockquote>
+<p>merge操作是真正进行数据更新的时刻，在一个数据页做merge之前，change buffer记录的变更越多，收益就越大。对于写多杜少的业务来说，change buffer使用效果最好。</p>
+<p>适用于写多读少的场景，读多写少不会降低随机读取磁盘的次数同时会增加维护change buffer的代价。关闭change buffer的方式<code>set global innodb_change_buffering=&#39;none&#39;</code></p>
+</blockquote>
+<p>  merge的执行流程：</p>
+<ul>
+<li><p>从磁盘读入数据页到内存。</p>
+</li>
+<li><p>从change buffer里找出这个数据页的change buffer记录，依次应用得到新的数据页。</p>
+</li>
+<li><p>写redo log。这个redo log包含数据的更新和change buffer的变更。</p>
+</li>
+</ul>
+<blockquote>
+<p>普通索引和唯一索引在查询方面相差不大，对于更新性能方面影响比较大。</p>
+</blockquote>
+<h3 id="change-buffer和redo-log"><a href="#change-buffer和redo-log" class="headerlink" title="change buffer和redo log"></a>change buffer和redo log</h3><blockquote>
+<p>redo log主要节省的是随机写磁盘的IO消耗（转换成顺序写）,change buffer主要节省的则是随机读磁盘的IO消耗。</p>
+</blockquote>
+<h2 id="优化器的逻辑"><a href="#优化器的逻辑" class="headerlink" title="优化器的逻辑"></a>优化器的逻辑</h2><blockquote>
+<p>优化器选中索引的目的就是找到一个最优的执行方案，用最小的代价去执行语句。扫描行数是影响执行代价的因素置一，扫描行数越少，意味着访问磁盘的次数越少，消耗cpu资源越少。</p>
+</blockquote>
+<blockquote>
+<p>mysql优化器判断扫描行数需要根据统计信息来估算记录数。这个统计信息就是索引的<strong>区分度</strong>。<code>show index from table</code>可以查看每个索引的基数，但并不准确。统计信息的来源通过采样的方式，选中N个数据页，统计这些页面的不同值，求平均值* 索引页数。<code>analyzr table t</code>可以重新统计索引信息。</p>
+</blockquote>
+<h3 id="索引选择异常和处理"><a href="#索引选择异常和处理" class="headerlink" title="索引选择异常和处理"></a>索引选择异常和处理</h3><blockquote>
+<p>使用force index强行选择一个索引。mysql会根据词法解析的结果分析出可能可以使用的索引作为候选项，然后再候选列表中依次判断每个索引需要扫描的多少行。如果force index的索引再候选列表中，就直接选中这个索引。</p>
+</blockquote>
+<blockquote>
+<p>修改语句，引导mysql使用我们期望的索引。</p>
+</blockquote>
+<blockquote>
+<p>新建一个更合适的索引，来提供给优化器做选择，或删掉无用的索引。</p>
+</blockquote>
+<h2 id="如何给字符串加索引"><a href="#如何给字符串加索引" class="headerlink" title="如何给字符串加索引"></a>如何给字符串加索引</h2><blockquote>
+<p>字符串索引使用前缀索引，定义好长度，就可以做到即节省空间，又不用额外增加太多查询成本.建立索引需要关注的是区分度。</p>
+</blockquote>
+<blockquote>
+<p>前缀索引还会影响到覆盖索引的优化操作，增加回表操作。</p>
+</blockquote>
+<h3 id="InnoDB刷脏页的控制策略"><a href="#InnoDB刷脏页的控制策略" class="headerlink" title="InnoDB刷脏页的控制策略"></a>InnoDB刷脏页的控制策略</h3><blockquote>
+<p>首先需要告知innoDB所在主机的IO能力，这样InnoDB才能知道需要全力刷脏页的时间，可以刷多快。<code>innodb_io_capacity</code>这个参数，他会告诉InnoDB你的磁盘能力。这个值建议设置为磁盘的IOPS。</p>
+<p>InnoDB的刷盘速度要参考两个因素：一个是脏页比例、一个redo log的写盘速度。</p>
+<p><code>innodb_max_dirty_pages_pct</code>是脏页比例的上限。</p>
+<p>脏页比例是通过<code>Innodb_buffer_pool_pages_dirty/Innodb_buffer_pool_pages_total</code>得到的。</p>
+</blockquote>
+<p>mysql8.0版本之后默认关闭的一个策略：</p>
+<blockquote>
+<p>一个查询请求需要在执行过程中先flush一个脏页，如果这个数据页旁边的数据页也是脏页，就会把这个邻居也刷掉，可能产生连锁反应。导致查询需要等待大量时间，可以通过<code>inndo_flush_neighbors</code>控制这个行为，这个行为可以减少随机IO。</p>
+</blockquote>
+<h2 id="表数据删除一半，表文件大小不变"><a href="#表数据删除一半，表文件大小不变" class="headerlink" title="表数据删除一半，表文件大小不变"></a>表数据删除一半，表文件大小不变</h2><blockquote>
+<p>inoodb在mysql8.0之前，表结构存在.frm为后缀的文件里，而mysql8.0之后允许将表结构定义在系统数据表中。表结构定义占用的空间很小，决定文件大小一般是表数据。</p>
+</blockquote>
+<p>innodb中的表数据即可以存在在共享表空间中，也可以是单独的文件。这个行为由参数<code>innodb_file_per_table</code>控制：</p>
+<ul>
+<li><p>off表的数据放在系统共享表空间，也就是跟数自点放在一起。</p>
+</li>
+<li><p>on表示每个InnoDB表数据存储在一个以.idb为后缀的文件中。</p>
+</li>
+</ul>
+<blockquote>
+<p>放在共享表空间中即使表被删除了，空间也不会回收。innoDB数据按页存储，如果我们删掉一个数据页上的所有记录，整个数据页就可以复用，空间不会被回收。插入不是按主键顺序插入也会导致空洞行为，可以通过重建表的方式去除空洞。<code>alter table A engine=InnoDB</code>。如果在这个过程中有新的数据要写入到表A就会造成数据丢失。</p>
+</blockquote>
+<h3 id="count-的实现方式"><a href="#count-的实现方式" class="headerlink" title="count(*)的实现方式"></a>count(*)的实现方式</h3><p>在不同mysql引擎中，count(*)有不同的实现方式。</p>
+<ul>
+<li><p>myisam引擎把一个表中的总行数存放在磁盘上，count（*）会直接返回这个个数，效率高。</p>
+</li>
+<li><p>innodb，需要把数据一行一行从引擎里面读出来，然后累计计数。</p>
+</li>
+</ul>
+<blockquote>
+<p>innoDB为为什么不把count(*)直接存起来呢？ 因为即使在同一时刻的多个查询，由于MVCC机制，返回的行数也是不确定的。</p>
+</blockquote>
+<blockquote>
+<p>innodb优化器计算count(*)是在保证逻辑正确的前提下，优化器会选择最小的那个索引树进行遍历。</p>
+</blockquote>
+<p>不同count的用法？</p>
+<blockquote>
+<p>count()是一个聚合函数，对于返回的结果集，一行行判断，如果count的参数不是NULL，+1.</p>
+<p>count(字段)&lt;count(主键id)&lt;count(1)≈count(*)，</p>
+</blockquote>
+<h2 id="order-by的工作原理"><a href="#order-by的工作原理" class="headerlink" title="order by的工作原理"></a>order by的工作原理</h2><blockquote>
+<p>全字段排序，Mysql会给每个线程分配一块内存用于排序，称为sort_buffer。排序可能在内存中完成，也可能需要使用外部排序，这取决于排序所需的内存和参数<code>sort_buffer_size</code>。如果排序所需内存超过<code>sort_buffer_size</code>那么则需要磁盘临时文件进行辅助排序。外部排序一般使用归并排序。<code>sort_buffer_size</code>越小，需要分成的份数就越大。</p>
+</blockquote>
+<blockquote>
+<p>rowId排序，Mysql认为排序的单行长度太大会怎么办？<code>max_length_for_sort_data</code>用于排序行数据的长度的一个参数。如果超过这个参数就会换个算法，新的算法只需要排序的列和主键id。</p>
+</blockquote>
+<blockquote>
+<p>Mysql的设计思想：如果内存够，就要多利用内存，减少磁盘访问。rowid排序需要回表需要更多的磁盘读。</p>
+</blockquote>
+<blockquote>
+<p>如果索引能够保证数据有序，则mysql不需要进行额外的排序。</p>
+</blockquote>
+<p>每个引擎用来唯一标识数据行的信息：</p>
+<ul>
+<li><p>对于有主键的InnoDB表来说，rowid就是主键ID。</p>
+</li>
+<li><p>对于没有主键的InnoDB来说，这个rowid就是由系统生成的。</p>
+</li>
+<li><p>Memory引擎不是索引组织表。可以认定为一个数组，这个rowid就是数组的下标。</p>
+</li>
+</ul>
+<p>是不是所有的临时表都是内存表？</p>
+<blockquote>
+<p><code>tmp_table_size</code>这个配置限制了内存临时表的大小，默认值是16M.如果临时表的大小超过了这个值，那么内存临时表就会转换成磁盘临时表。磁盘临时表使用的默认引擎是InnoDB。当使用磁盘临时表的时候，对应的就是一个没有显式索引的InnoDB表的排序过程。</p>
+</blockquote>
+<p>优先队列排序不需要使用临时文件，触发的条件：</p>
+<ul>
+<li><p>limit子句存在，返回的行数较少时。</p>
+</li>
+<li><p>无适用索引：查询中的排序列没有响应的索引，或者索引不能被有效利用，mysql可能会考虑其它排序方法，文件排序或优先队列排序。</p>
+</li>
+</ul>
+<h3 id="为什么sql语句逻辑相同，性能差异却巨大"><a href="#为什么sql语句逻辑相同，性能差异却巨大" class="headerlink" title="为什么sql语句逻辑相同，性能差异却巨大"></a>为什么sql语句逻辑相同，性能差异却巨大</h3><blockquote>
+<p>对索引字段做函数操作或者运算操作，可能会破坏索引值的有序性，因此优化器就决定放弃走树搜索功能。对参数使用函数操作可能就不会。</p>
+</blockquote>
+<blockquote>
+<p>使用explain分析一条sql语句，如果extra上面展示了using index说明使用了覆盖索引。</p>
+</blockquote>
+<p>隐式类型转换</p>
+<ul>
+<li><p>数据转化规则：字符串和数字做比较的话，是将字符串转换成数字。</p>
+</li>
+<li><p>为什么有数据类型转换，就需要走全索引扫描？如果数据库字段进行了隐式类型转换，就会执行数据函数，从而可能放弃走索引，走全表扫描。</p>
+</li>
+</ul>
+<blockquote>
+<p>连表查询两个表建立的索引不关数据类型要相同，还要保证使用的字符集需要相同。字符集不同可能会需要进行类型转换，需要对驱动表或者被驱动表的索引字段进行函数操作。</p>
+</blockquote>
+<h4 id="查询一行的语句，也会执行这么慢吗？"><a href="#查询一行的语句，也会执行这么慢吗？" class="headerlink" title="查询一行的语句，也会执行这么慢吗？"></a>查询一行的语句，也会执行这么慢吗？</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span>  <span class="keyword">from</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上述sql执行很慢，排查思路:</p>
+<ul>
+<li>使用<code>show processlist</code>看是否在等待MDL锁，DML会隐式获取表MDL读锁。<code>sys.schema_table_lock_waits</code>这张表，我们就可以直接找出造成阻塞的process id,直接kill。</li>
+</ul>
+<blockquote>
+<p>mysql连接被断开的时候，会自动回滚这个连接里面正在执行的事务。</p>
+</blockquote>
+<p>mysql的InnoDB存储引擎中，如果查询一个没有索引的列，InnoDB通常会执行全表扫描，但是关于锁的行为，有一些注意事项：</p>
+<ul>
+<li><p>锁的类型取决于事务隔离级别和查询类型：</p>
+<ul>
+<li><p>对于<code>Read COMMITTED</code>隔离级别，InnoDB只锁定那些真正读取到的索引记录。</p>
+</li>
+<li><p>对于<code>repeatable read</code>隔离级别：innoDB在某些情况下可能会锁定更多的记录。</p>
+</li>
+</ul>
+</li>
+<li><p>非唯一索引和唯一索引的行为是不同的：</p>
+<ul>
+<li><p>如果你在一个非唯一索引的列上执行一个写操作，即使该列有索引，innoDB可能仍然需要锁定多个记录，因为不知道有多少记录的值可能匹配到给定的条件。</p>
+</li>
+<li><p>对于唯一索引，innoDB通常直到只有一个记录会匹配上，所以它只需要锁定那个记录。</p>
+</li>
+</ul>
+</li>
+<li><p>如果一个列没有索引</p>
+<ul>
+<li>对于<code>SELECT ... FOR UPDATE</code>或<code>SELECT ... LOCK IN SHARE MODE</code>，如果对没有索引的列使用了<code>WHERE</code>子句，InnoDB需要执行全表扫描并锁定符合条件的每一行。</li>
+<li>对于写操作，如果查询的列没有索引，InnoDB也会执行全表扫描，并锁定所有匹配条件的行。</li>
+</ul>
+</li>
+</ul>
+<h4 id="幻读，幻读有什么问题"><a href="#幻读，幻读有什么问题" class="headerlink" title="幻读，幻读有什么问题"></a>幻读，幻读有什么问题</h4><blockquote>
+<p>幻读指的是一个事务在前后两次查询同一范围的时候，后一次查询看到了前一次查询没有看到的行。</p>
+</blockquote>
+<p>幻读说明：</p>
+<ul>
+<li>在可重复读隔离级别下，普通的查询是快照读，是不会看到别的事务插入的数据，因此幻读只在当前读下才会出现。</li>
+<li>幻读仅专指新插入的行。<blockquote>
+<p>行锁无法锁住新插入的行。</p>
+</blockquote>
+</li>
+</ul>
+<p>为了解决幻读问题，InnoDB引入了间隙锁。数据行是可以加入锁的实体，数据行之间的间隙也是可以加入锁的实体。</p>
+<blockquote>
+<p>跟间隙锁存在冲突关系的，是往这个间隙中插入一个记录这个操作，间隙锁之间都不存在冲突。</p>
+</blockquote>
+<blockquote>
+<p>间隙锁和行锁合称next-key lock,每个next-key lock是前开后闭区间。间隙锁是在可重复读隔离级别下才会生效的。要解决可能出现的数据和日志不一致的问题，需要把binlog格式设置为row。</p>
+</blockquote>
+<p>间隙锁加锁规则：</p>
+<ul>
+<li>原则1： 加锁的基本单位是<code>next-key lock</code>。</li>
+<li>原则2： 查找过程中访问到的对象才会加锁(普通索引如果使用了覆盖索引且使用的是<code>lock in share mode</code>，就不会访问主键索引不会给主键索引加锁)。</li>
+<li>优化1： 索引上的等值查询，给唯一索引加锁的时候，<code>next-key lock</code>退化为行锁。</li>
+<li>优化2： 索引上的等值查询，向右遍历时且最后一个值不满足等值条件的时候，<code>next-key lock</code>退化为间隙锁。</li>
+<li>一个bug： 唯一索引上的范围查询会访问到不满足条件的第一个值为止。</li>
+</ul>
+<blockquote>
+<p><code>lock in share mode</code> 锁住字段使用了覆盖索引，只锁住覆盖索引，<code>for update</code>系统会认为你接下来要更新数据，顺便给主键索引添加满足条件的行锁。</p>
+</blockquote>
+<blockquote>
+<p>在删除数据的时候尽量加limit，这样不仅可以控制删除数据的条数，让操作更安全，还可以减小加锁的范围。</p>
+</blockquote>
+<blockquote>
+<p><code>next-key lock</code>实际上是由间隙锁和行锁组成，具体执行的时候，是要分成间隙锁和行锁两部分来执行的。<br>读提交隔离级别在外键场景下还是有间隙锁的，读提交隔离级别下还有一个优化，语句执行过程中加上的行锁，语句执行完成后，就要把”不满足条件的行”上的行锁直接释放了，不需要等到事务提交。</p>
+</blockquote>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2></article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/yangxiao.github.io/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/yangxiao.github.io/img/headimg.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/yangxiao.github.io/img/headimg.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">XIAO YANG</div><div class="post-copyright__author_desc">笔记</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://yangxiao23.github.io/yangxiao.github.io/2023/12/20/Mysql/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://yangxiao23.github.io/yangxiao.github.io/2023/12/20/Mysql/')">Mysql</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://yangxiao23.github.io/yangxiao.github.io/2023/12/20/Mysql/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Mysql&amp;url=https://yangxiao23.github.io/yangxiao.github.io/2023/12/20/Mysql/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yangxiao23.github.io/yangxiao.github.io" target="_blank">后端开发</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/yangxiao.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>中间件<span class="tagsPageCount">3</span></a><a class="post-meta__box__tags" href="/yangxiao.github.io/tags/Mysql/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Mysql<span class="tagsPageCount">1</span></a></div></div><div class="post_share"><div class="social-share" data-image="/yangxiao.github.io/img/headimg.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/yangxiao.github.io/2023/12/20/kafka/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/yangxiao.github.io/" onerror="onerror=null;src='/yangxiao.github.io/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Kafka</div></div></a></div><div class="next-post pull-right"><a href="/yangxiao.github.io/2023/12/26/ElasticSearch/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/yangxiao.github.io/" onerror="onerror=null;src='/yangxiao.github.io/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ElasticSearch</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/yangxiao.github.io/2023/12/26/ElasticSearch/" title="ElasticSearch"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/yangxiao.github.io/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-12-26</div><div class="title">ElasticSearch</div></div></a></div><div><a href="/yangxiao.github.io/2023/12/20/kafka/" title="Kafka"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/yangxiao.github.io/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-12-20</div><div class="title">Kafka</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/yangxiao.github.io/img/headimg.jpg" onerror="this.onerror=null;this.src='/yangxiao.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">后端开发记录</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BDMysql"><span class="toc-number">1.</span> <span class="toc-text">高性能Mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysq%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">Mysq架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-Schema"><span class="toc-number">1.2.</span> <span class="toc-text">Performance Schema</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%A1%AC%E4%BB%B6%E4%BC%98%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text">操作系统和硬件优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">优化服务器配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB%E7%BC%93%E5%86%B2%E6%B1%A0"><span class="toc-number">1.4.1.</span> <span class="toc-text">InnoDB缓冲池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.2.</span> <span class="toc-text">线程缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mysql%E7%9A%84I-O%E8%A1%8C%E4%B8%BA"><span class="toc-number">1.4.3.</span> <span class="toc-text">Mysql的I&#x2F;O行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql%E5%B8%B8%E8%A7%81%E6%97%A5%E5%BF%97"><span class="toc-number">1.4.4.</span> <span class="toc-text">mysql常见日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB%E8%A1%A8%E7%A9%BA%E9%97%B4"><span class="toc-number">1.4.5.</span> <span class="toc-text">InnoDB表空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96I-O%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9"><span class="toc-number">1.4.6.</span> <span class="toc-text">其他I&#x2F;O配置选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mysql%E5%B9%B6%E5%8F%91"><span class="toc-number">1.4.7.</span> <span class="toc-text">Mysql并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7InnoDB%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.4.8.</span> <span class="toc-text">高级InnoDB设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#schema%E7%9A%84%E7%AE%A1%E7%90%86%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.5.</span> <span class="toc-text">schema的管理和设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-number">1.6.</span> <span class="toc-text">创建高性能的索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.6.1.</span> <span class="toc-text">索引类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E7%B4%A2%E5%BC%95%E7%AD%96%E7%95%A5"><span class="toc-number">1.6.2.</span> <span class="toc-text">高性能的索引策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">1.7.</span> <span class="toc-text">查询性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%88%86%E5%8C%BA"><span class="toc-number">1.8.</span> <span class="toc-text">表分区</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mysql45%E8%AE%B2"><span class="toc-number">2.</span> <span class="toc-text">Mysql45讲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#redo-log"><span class="toc-number">2.1.</span> <span class="toc-text">redo log</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#binlog"><span class="toc-number">2.2.</span> <span class="toc-text">binlog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4"><span class="toc-number">2.3.</span> <span class="toc-text">两阶段提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB"><span class="toc-number">2.4.</span> <span class="toc-text">事务隔离</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E9%9A%94%E7%A6%BB%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.4.1.</span> <span class="toc-text">视图隔离的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">2.5.</span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%BB%B4%E6%8A%A4"><span class="toc-number">2.5.1.</span> <span class="toc-text">索引维护</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%94%81%E5%92%8C%E8%A1%A8%E9%94%81"><span class="toc-number">2.6.</span> <span class="toc-text">全局锁和表锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E9%94%81"><span class="toc-number">2.7.</span> <span class="toc-text">行锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B"><span class="toc-number">2.7.1.</span> <span class="toc-text">死锁和死锁检测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E6%98%AF%E4%B8%8D%E6%98%AF%E9%9A%94%E7%A6%BB%E7%9A%84"><span class="toc-number">2.8.</span> <span class="toc-text">事务是不是隔离的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%B4%A2%E5%BC%95%E5%92%8C%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-number">2.9.</span> <span class="toc-text">普通索引和唯一索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">2.9.1.</span> <span class="toc-text">更新过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#change-buffer%E5%92%8Credo-log"><span class="toc-number">2.9.2.</span> <span class="toc-text">change buffer和redo log</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%E7%9A%84%E9%80%BB%E8%BE%91"><span class="toc-number">2.10.</span> <span class="toc-text">优化器的逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E9%80%89%E6%8B%A9%E5%BC%82%E5%B8%B8%E5%92%8C%E5%A4%84%E7%90%86"><span class="toc-number">2.10.1.</span> <span class="toc-text">索引选择异常和处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%BB%99%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-number">2.11.</span> <span class="toc-text">如何给字符串加索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB%E5%88%B7%E8%84%8F%E9%A1%B5%E7%9A%84%E6%8E%A7%E5%88%B6%E7%AD%96%E7%95%A5"><span class="toc-number">2.11.1.</span> <span class="toc-text">InnoDB刷脏页的控制策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%A0%E9%99%A4%E4%B8%80%E5%8D%8A%EF%BC%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E4%B8%8D%E5%8F%98"><span class="toc-number">2.12.</span> <span class="toc-text">表数据删除一半，表文件大小不变</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#count-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-number">2.12.1.</span> <span class="toc-text">count(*)的实现方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#order-by%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.13.</span> <span class="toc-text">order by的工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88sql%E8%AF%AD%E5%8F%A5%E9%80%BB%E8%BE%91%E7%9B%B8%E5%90%8C%EF%BC%8C%E6%80%A7%E8%83%BD%E5%B7%AE%E5%BC%82%E5%8D%B4%E5%B7%A8%E5%A4%A7"><span class="toc-number">2.13.1.</span> <span class="toc-text">为什么sql语句逻辑相同，性能差异却巨大</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%80%E8%A1%8C%E7%9A%84%E8%AF%AD%E5%8F%A5%EF%BC%8C%E4%B9%9F%E4%BC%9A%E6%89%A7%E8%A1%8C%E8%BF%99%E4%B9%88%E6%85%A2%E5%90%97%EF%BC%9F"><span class="toc-number">2.13.1.1.</span> <span class="toc-text">查询一行的语句，也会执行这么慢吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%BB%E8%AF%BB%EF%BC%8C%E5%B9%BB%E8%AF%BB%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="toc-number">2.13.1.2.</span> <span class="toc-text">幻读，幻读有什么问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">2.14.</span> <span class="toc-text">常见问题</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yangxiao.github.io/2023/12/26/ElasticSearch/" title="ElasticSearch">ElasticSearch</a><time datetime="2023-12-25T16:03:26.971Z" title="发表于 2023-12-26 00:03:26">2023-12-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yangxiao.github.io/2023/12/20/Mysql/" title="Mysql">Mysql</a><time datetime="2023-12-20T14:48:43.327Z" title="发表于 2023-12-20 22:48:43">2023-12-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yangxiao.github.io/2023/12/20/kafka/" title="Kafka">Kafka</a><time datetime="2023-12-20T14:48:08.499Z" title="发表于 2023-12-20 22:48:08">2023-12-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yangxiao.github.io/2023/12/19/test/" title="test">test</a><time datetime="2023-12-19T13:18:38.000Z" title="发表于 2023-12-19 21:18:38">2023-12-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yangxiao.github.io/2023/12/18/hello-world/" title="Hello World">Hello World</a><time datetime="2023-12-18T14:51:37.606Z" title="发表于 2023-12-18 22:51:37">2023-12-18</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/yangxiao.github.io/" title="XIAO YANG" target="_blank">XIAO YANG</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/yangxiao.github.io/archives/" title="archive"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/yangxiao.github.io/tags/" title="tag"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/yangxiao.github.io/categories/" title="category"><div class="headline">分类</div><div class="length-num">2</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/yangxiao.github.io/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/yangxiao.github.io/tags/Mysql/" style="font-size: 0.88rem;">Mysql<sup>1</sup></a><a href="/yangxiao.github.io/tags/test/" style="font-size: 0.88rem;">test<sup>1</sup></a><a href="/yangxiao.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 0.88rem;">中间件<sup>3</sup></a><a href="/yangxiao.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 0.88rem;">分布式<sup>1</sup></a><a href="/yangxiao.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 0.88rem;">搜索引擎<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/yangxiao.github.io/js/utils.js"></script><script src="/yangxiao.github.io/js/main.js"></script><script src="/yangxiao.github.io/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 XIAO YANG 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/yangxiao.github.io/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
